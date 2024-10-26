@@ -10,7 +10,8 @@ package com.mycompany.gymcontroller;
  */
 public class GymController {
 
-    public static void main(String[] args) {
-        System.out.println("Hello World!");
+    public static void main(String[] args)
+    {
+        //
     }
 }
