@@ -13,31 +13,31 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EjercicioController {
+public class RutinaController {
 
-    private static final String FILE_NAME = "ejercicios.dat";
-    private List<Ejercicio> ejercicios;
+    private static final String FILE_NAME = "rutinas.dat";
+    private List<Rutina> rutinas;
 
-    public EjercicioController() {
-        ejercicios = new ArrayList<>();
+    public RutinaController() {
+        rutinas = new ArrayList<>();
         cargarDatos();
     }
 
     // Crear
-    public void agregarEjercicio(Ejercicio ejercicio) {
-        ejercicios.add(ejercicio);
+    public void agregarRutina(Rutina rutina) {
+        rutinas.add(rutina);
         guardarDatos();
     }
 
     // Leer
-    public List<Ejercicio> obtenerEjercicios() {
-        return ejercicios;
+    public List<Rutina> obtenerRutinas() {
+        return rutinas;
     }
 
     // Actualizar
-    public void actualizarEjercicio(int index, Ejercicio nuevoEjercicio) {
-        if (index >= 0 && index < ejercicios.size()) {
-            ejercicios.set(index, nuevoEjercicio);
+    public void actualizarRutina(int index, Rutina nuevaRutina) {
+        if (index >= 0 && index < rutinas.size()) {
+            rutinas.set(index, nuevaRutina);
             guardarDatos();
         } else {
             System.out.println("Índice no válido");
@@ -45,9 +45,9 @@ public class EjercicioController {
     }
 
     // Borrar
-    public void borrarEjercicio(int index) {
-        if (index >= 0 && index < ejercicios.size()) {
-            ejercicios.remove(index);
+    public void borrarRutina(int index) {
+        if (index >= 0 && index < rutinas.size()) {
+            rutinas.remove(index);
             guardarDatos();
         } else {
             System.out.println("Índice no válido");
@@ -56,7 +56,7 @@ public class EjercicioController {
 
     private void cargarDatos() {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(FILE_NAME))) {
-            ejercicios = (List<Ejercicio>) ois.readObject();
+            rutinas = (List<Rutina>) ois.readObject();
         } catch (FileNotFoundException e) {
             System.out.println("Archivo no encontrado, se creará uno nuevo.");
         } catch (IOException | ClassNotFoundException e) {
@@ -65,10 +65,9 @@ public class EjercicioController {
 
     private void guardarDatos() {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(FILE_NAME))) {
-            oos.writeObject(ejercicios);
+            oos.writeObject(rutinas);
         } catch (IOException e) {
         }
     }
 }
-
 
