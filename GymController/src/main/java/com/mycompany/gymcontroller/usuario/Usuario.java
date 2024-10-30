@@ -1,4 +1,4 @@
-package com.mycompany.gymcontroller;
+package com.mycompany.gymcontroller.usuario;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license

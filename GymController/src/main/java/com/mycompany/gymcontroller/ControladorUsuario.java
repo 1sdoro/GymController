@@ -4,6 +4,7 @@
  */
 package com.mycompany.gymcontroller;
 
+import com.mycompany.gymcontroller.usuario.UsuarioMembresia;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
