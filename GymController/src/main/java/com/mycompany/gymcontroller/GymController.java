@@ -9,13 +9,21 @@ package com.mycompany.gymcontroller;
  * @author Probo
  */
 
+import com.mycompany.gymcontroller.pantallas.LogInUsuario;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class GymController {
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
+        //creando la pantalla del login
+        LogInUsuario logpantalla = new LogInUsuario();
+        logpantalla.setVisible(true);
+        //linea para que la pantalla se ubique en el medio
+        logpantalla.setLocationRelativeTo(null);
+        
         // Inicializar ejercicios
         List<Ejercicio> ejercicios = inicializarEjercicios();
 
