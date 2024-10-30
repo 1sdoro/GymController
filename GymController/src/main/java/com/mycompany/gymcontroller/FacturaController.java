@@ -9,6 +9,7 @@ package com.mycompany.gymcontroller;
  * @author William Arias
  */
 
+import com.mycompany.gymcontroller.Factura;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;

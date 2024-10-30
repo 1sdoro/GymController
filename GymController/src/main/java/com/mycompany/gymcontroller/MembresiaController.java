@@ -4,7 +4,6 @@
  */
 package com.mycompany.gymcontroller;
 
-import com.mycompany.gymcontroller.usuario.UsuarioMembresia;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -18,7 +17,7 @@ import java.util.List;
  *
  * @author Probo
  */
-public class ControladorUsuario {
+public class MembresiaController {
     public class UsuarioMembresiaController {
     
    private static final String FILE_NAME = "ControladorDeUsuarios.dat";

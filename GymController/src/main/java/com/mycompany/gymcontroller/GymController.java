@@ -9,7 +9,6 @@ package com.mycompany.gymcontroller;
  * @author Probo
  */
 
-import com.mycompany.gymcontroller.usuario.UsuarioMembresia;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;

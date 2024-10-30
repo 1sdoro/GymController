@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.gymcontroller.usuario;
+package com.mycompany.gymcontroller;
 
-import com.mycompany.gymcontroller.usuario.Usuario;
+import com.mycompany.gymcontroller.Usuario;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
