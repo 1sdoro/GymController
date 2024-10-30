@@ -136,7 +136,8 @@ public class LogInUsuario extends javax.swing.JFrame {
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         // TODO add your handling code here:
-        int cedula = txtCedula.get();
+        int cedula = txtCedula.getX();
+        
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     /**

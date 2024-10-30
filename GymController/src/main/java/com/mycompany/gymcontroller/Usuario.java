@@ -10,33 +10,33 @@ package com.mycompany.gymcontroller;
  * @author Probo
  */
 public class Usuario {
-    private int cedula;
-    private String nombre;
+    private int cedulaUsuario;
+    private String nombreUsuario;
     private String usuario;
-    private String contrasena;
+    private String contrasennaUsuario;
 
-    public Usuario(int cedula, String nombre, String usuario, String contrasena)
+    public Usuario(int cedulaUsuario, String nombreUsuario, String usuario, String contrasennaUsuario)
     {
-        this.cedula = cedula;
-        this.nombre = nombre;
+        this.cedulaUsuario = cedulaUsuario;
+        this.nombreUsuario = nombreUsuario;
         this.usuario = usuario;
-        this.contrasena = contrasena;
+        this.contrasennaUsuario = contrasennaUsuario;
     }
 
-    public int getCedula() {
-        return cedula;
+    public int getCedulaUsuario() {
+        return cedulaUsuario;
     }
 
-    public void setCedula(int cedula) {
-        this.cedula = cedula;
+    public void setCedulaUsuario(int cedulaUsuario) {
+        this.cedulaUsuario = cedulaUsuario;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombreUsuario() {
+        return nombreUsuario;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
     }
 
     public String getUsuario() {
@@ -47,12 +47,12 @@ public class Usuario {
         this.usuario = usuario;
     }
 
-    public String getContrasena() {
-        return contrasena;
+    public String getContrasennaUsuario() {
+        return contrasennaUsuario;
     }
 
-    public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
+    public void setContrasennaUsuario(String contrasennaUsuario) {
+        this.contrasennaUsuario = contrasennaUsuario;
     }
 }
 
