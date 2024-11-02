@@ -133,6 +133,7 @@ public class RegistroUsuarioGym extends javax.swing.JPanel {
         {
             String ide = btnIngresar.getText();
             int Cedula = 0;
+            int Apellido = 0;
             try
             {
               Cedula = Integer.parseInt(ide);

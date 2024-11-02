@@ -23,6 +23,10 @@ public class Usuario {
         this.contrasennaUsuario = contrasennaUsuario;
     }
 
+    public Usuario(int Cedula, String nombre, int Apellido) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     public int getCedulaUsuario() {
         return cedulaUsuario;
     }

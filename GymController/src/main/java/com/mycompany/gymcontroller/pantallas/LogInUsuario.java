@@ -19,6 +19,10 @@ public class LogInUsuario extends javax.swing.JFrame {
         initComponents();
     }
 
+    private LogInUsuario(int Cedula, int contra) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -149,6 +153,7 @@ public class LogInUsuario extends javax.swing.JFrame {
         {
             String ide = btnIngresar.getText();
             int Cedula = 0;
+            int contra = 0;
             try
             {
               Cedula = Integer.parseInt(ide);
