@@ -4,6 +4,8 @@
  */
 package com.mycompany.gymcontroller.pantallas;
 
+import com.mycompany.gymcontroller.GymController;
+
 /**
  *
  * @author Dorothea Ramirez
@@ -137,6 +139,29 @@ public class LogInUsuario extends javax.swing.JFrame {
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         // TODO add your handling code here:
         int cedula = txtCedula.getX();
+        if(btnIngresar.getText().length()==0)
+        {
+            btnIngresar.setText("Debes digitar un identificación");
+        }else if(btnIngresar.getText().length()==0)
+        {
+            btnIngresar.setText("Debes digitar un Nombre");
+        }else
+        {
+            String ide = btnIngresar.getText();
+            int iden = 0;
+            try
+            {
+              iden = Integer.parseInt(ide);
+            }catch(Exception e)
+            {
+                btnIngresar.setText(e.getMessage());
+                return;
+            }
+            String nombre = txtCedula.getText();
+            GymController app = new GymController ();
+            Cedula u = new Cedula(iden, nombre);
+            app.agregarCedula(u);
+        }
         
     }//GEN-LAST:event_btnIngresarActionPerformed
 
