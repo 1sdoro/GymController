@@ -2,7 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package com.mycompany.gymcontroller;
+package com.mycompany.gymcontroller.pantallas;
+
+import com.mycompany.gymcontroller.Usuario;
+import com.mycompany.gymcontroller.UsuarioController;
 
 /**
  *
@@ -122,17 +125,17 @@ public class RegistroUsuarioGym extends javax.swing.JPanel {
         // TODO add your handling code here:
         if(btnIngresar.getText().length()==0)
         {
-            lblError.setText("Debes digitar un identificación");
+            lblError.setText("Debes digitar un Cedulatificación");
         }else if(txtNombre.getText().length()==0)
         {
             lblError.setText("Debes digitar un Nombre");
         }else
         {
             String ide = btnIngresar.getText();
-            int iden = 0;
+            int Cedula = 0;
             try
             {
-              iden = Integer.parseInt(ide);
+              Cedula = Integer.parseInt(ide);
             }catch(Exception e)
             {
                 lblError.setText(e.getMessage());
@@ -140,7 +143,7 @@ public class RegistroUsuarioGym extends javax.swing.JPanel {
             }
             String nombre = txtNombre.getText();
             UsuarioController app = new UsuarioController();
-            Usuarios u = new Usuarios(iden, nombre);
+            Usuario u = new Usuario(Cedula, nombre, Apellido);
             app.agregarUsuario(u);
         }
     }//GEN-LAST:event_btnIngresarMouseClicked

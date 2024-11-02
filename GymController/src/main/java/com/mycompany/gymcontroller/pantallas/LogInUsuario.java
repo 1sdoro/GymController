@@ -141,17 +141,17 @@ public class LogInUsuario extends javax.swing.JFrame {
         int cedula = txtCedula.getX();
         if(btnIngresar.getText().length()==0)
         {
-            btnIngresar.setText("Debes digitar un identificación");
+            btnIngresar.setText("Debes digitar un Cedulatificación");
         }else if(btnIngresar.getText().length()==0)
         {
             btnIngresar.setText("Debes digitar un Nombre");
         }else
         {
             String ide = btnIngresar.getText();
-            int iden = 0;
+            int Cedula = 0;
             try
             {
-              iden = Integer.parseInt(ide);
+              Cedula = Integer.parseInt(ide);
             }catch(Exception e)
             {
                 btnIngresar.setText(e.getMessage());
@@ -159,8 +159,8 @@ public class LogInUsuario extends javax.swing.JFrame {
             }
             String nombre = txtCedula.getText();
             GymController app = new GymController ();
-            Cedula u = new Cedula(iden, nombre);
-            app.agregarCedula(u);
+            LogInUsuario u = new LogInUsuario (Cedula, contra);
+            app.LogInUsuario(u);
         }
         
     }//GEN-LAST:event_btnIngresarActionPerformed
