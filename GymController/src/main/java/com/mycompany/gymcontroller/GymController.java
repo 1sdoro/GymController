@@ -55,6 +55,7 @@ public class GymController {
     private static List<Ejercicio> inicializarEjercicios() {
         List<Ejercicio> ejercicios = new ArrayList<>();
         
+        
         // Ejercicios de Fuerza
         ejercicios.add(new Ejercicio(1, "Press de banca", "Fuerza"));
         ejercicios.add(new Ejercicio(2, "Sentadillas", "Fuerza"));
@@ -117,6 +118,7 @@ public class GymController {
 
         return ejercicios;
     }
+    
 
     // Método para generar factura
     private static String generarFactura(UsuarioMembresia usuarioMembresia, Membresia membresia) {
