@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
-
 package com.mycompany.gymcontroller;
 
 /**
@@ -9,6 +5,10 @@ package com.mycompany.gymcontroller;
  * @author Probo
  */
 
+import com.mycompany.gymcontroller.modelo.UsuarioMembresia;
+import com.mycompany.gymcontroller.modelo.Rutina;
+import com.mycompany.gymcontroller.modelo.Membresia;
+import com.mycompany.gymcontroller.modelo.Ejercicio;
 import com.mycompany.gymcontroller.pantallas.LogInUsuario;
 import java.util.ArrayList;
 import java.util.Date;

@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.gymcontroller;
+package com.mycompany.gymcontroller.controllers;
 
-import com.mycompany.gymcontroller.Usuario;
+import com.mycompany.gymcontroller.modelo.UsuarioMembresia;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -16,71 +16,66 @@ import java.util.List;
 
 /**
  *
- * @author Dorothea Ramirez
+ * @author Probo
  */
-public class UsuarioController 
-{
-    private static final String FILE_NAME = "usuarios.dat";
-    private List<Usuario> usuarios;
+public class MembresiaController {
+    public class UsuarioMembresiaController {
+    
+   private static final String FILE_NAME = "ControladorDeUsuarios.dat";
+    private List<UsuarioMembresia> Usuario;
 
-    public UsuarioController() 
-    {
-        usuarios = new ArrayList<>();
+    public UsuarioMembresiaController() {
+        Usuario = new ArrayList<>();
         cargarDatos();
     }
+
     
-    // Crear
-    public void agregarUsuario(Usuario usuario) 
-    {
-        usuarios.add(usuario);
+    public void agregarUsuarioMembresia(UsuarioMembresia persona) {
+        Usuario.add(persona);
         guardarDatos();
     }
+
     
-    // Leer
-    public List<Usuario> obtenerUsuarios()
-    {
-        return usuarios;
+    public List<UsuarioMembresia> obtenerUsuarioMembresias() {
+        return Usuario;
     }
+
     
-     // Actualizar
-    public void actualizarUsuariose(int index, Usuario nuevoUsuario) 
-    {
-        if (index >= 0 && index < usuarios.size()) {
-            usuarios.set(index, nuevoUsuario);
+    public void actualizarUsuarioMembresia(int index, UsuarioMembresia nuevaUsuarioMembresia) {
+        if (index >= 0 && index < Usuario.size()) {
+            Usuario.set(index, nuevaUsuarioMembresia);
             guardarDatos();
         } else {
             System.out.println("Índice no válido");
         }
     }
+
     
-     // Borrar
-    public void borrarEstudiante(int index) 
-    {
-        if (index >= 0 && index < usuarios.size()) {
-            usuarios.remove(index);
+    public void borrarUsuarioMembresia(int index) {
+        if (index >= 0 && index < Usuario.size()) {
+            Usuario.remove(index);
             guardarDatos();
         } else {
             System.out.println("Índice no válido");
         }
     }
-    
-     private void cargarDatos() 
-     {
+
+    private void cargarDatos() {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(FILE_NAME))) {
-            usuarios = (List<Usuario>) ois.readObject();
+            Usuario = (List<UsuarioMembresia>) ois.readObject();
         } catch (FileNotFoundException e) {
             System.out.println("Archivo no encontrado, se creará uno nuevo.");
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
-     
-     private void guardarDatos() {
+
+    private void guardarDatos() {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(FILE_NAME))) {
-            oos.writeObject(usuarios);
+            oos.writeObject(Usuario);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    
+}
 }

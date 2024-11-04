@@ -4,8 +4,8 @@
  */
 package com.mycompany.gymcontroller.pantallas;
 
-import com.mycompany.gymcontroller.Usuario;
-import com.mycompany.gymcontroller.UsuarioController;
+import com.mycompany.gymcontroller.modelo.Usuario;
+import com.mycompany.gymcontroller.controllers.UsuarioController;
 
 /**
  *
