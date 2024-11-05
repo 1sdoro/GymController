@@ -10,6 +10,8 @@ import com.mycompany.gymcontroller.modelo.Rutina;
 import com.mycompany.gymcontroller.modelo.Membresia;
 import com.mycompany.gymcontroller.modelo.Ejercicio;
 import com.mycompany.gymcontroller.pantallas.LogInUsuario;
+import com.mycompany.gymcontroller.pantallas.Principal;
+import com.mycompany.gymcontroller.pantallas.RegistroUsuarioGym;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -18,37 +20,41 @@ public class GymController {
 
     public static void main(String[] args)
     {
+           Principal principal = new Principal();
+    principal.setVisible(true);
         //creando la pantalla del login
-        LogInUsuario logpantalla = new LogInUsuario();
-        logpantalla.setVisible(true);
-        //linea para que la pantalla se ubique en el medio
-        logpantalla.setLocationRelativeTo(null);
-        
-        // Inicializar ejercicios
-        List<Ejercicio> ejercicios = inicializarEjercicios();
-
-        // Crear membresías
-        List<Membresia> membresias = new ArrayList<>();
-        membresias.add(new Membresia(1, "Básica", 100, "Mensual"));
-        membresias.add(new Membresia(2, "Premium", 200, "Mensual"));
-
-        // Crear usuarios de membresía (Ejemplo)
-        List<UsuarioMembresia> usuariosMembresia = new ArrayList<>();
-        usuariosMembresia.add(new UsuarioMembresia(1, 1, new Date())); // Usa la fecha actual
-        usuariosMembresia.add(new UsuarioMembresia(2, 2, new Date())); // Usa la fecha actual
-
-        // Crear rutinas de ejercicios (Ejemplo)
-        Rutina rutina = new Rutina(1, 1, List.of(1, 2, 3), List.of(1, 2), "Rutina de Fuerza", 10);
-
-        // Generar una factura (Ejemplo)
-        String factura = generarFactura(usuariosMembresia.get(0), membresias.get(0));
-        System.out.println(factura);
-
-        // Imprimir todos los ejercicios (Ejemplo)
-        System.out.println("Ejercicios disponibles:");
-        for (Ejercicio ejercicio : ejercicios) {
-            System.out.println(ejercicio.getNombre());
-        }
+//        LogInUsuario logpantalla = new LogInUsuario();
+//        logpantalla.setVisible(true);
+//        RegistroUsuarioGym s = new RegistroUsuarioGym();
+//        s.setVisible(true);
+//        //linea para que la pantalla se ubique en el medio
+//        logpantalla.setLocationRelativeTo(null);
+//        
+//        // Inicializar ejercicios
+//        List<Ejercicio> ejercicios = inicializarEjercicios();
+//
+//        // Crear membresías
+//        List<Membresia> membresias = new ArrayList<>();
+//        membresias.add(new Membresia(1, "Básica", 100, "Mensual"));
+//        membresias.add(new Membresia(2, "Premium", 200, "Mensual"));
+//
+//        // Crear usuarios de membresía (Ejemplo)
+//        List<UsuarioMembresia> usuariosMembresia = new ArrayList<>();
+//        usuariosMembresia.add(new UsuarioMembresia(1, 1, new Date())); // Usa la fecha actual
+//        usuariosMembresia.add(new UsuarioMembresia(2, 2, new Date())); // Usa la fecha actual
+//
+//        // Crear rutinas de ejercicios (Ejemplo)
+//        Rutina rutina = new Rutina(1, 1, List.of(1, 2, 3), List.of(1, 2), "Rutina de Fuerza", 10);
+//
+//        // Generar una factura (Ejemplo)
+//        String factura = generarFactura(usuariosMembresia.get(0), membresias.get(0));
+//        System.out.println(factura);
+//
+//        // Imprimir todos los ejercicios (Ejemplo)
+//        System.out.println("Ejercicios disponibles:");
+//        for (Ejercicio ejercicio : ejercicios) {
+//            System.out.println(ejercicio.getNombre());
+//        }
     }
 
     // Método para inicializar ejercicios
