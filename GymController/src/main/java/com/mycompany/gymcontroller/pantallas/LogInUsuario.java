@@ -19,6 +19,7 @@ public class LogInUsuario extends javax.swing.JFrame {
      */
     public LogInUsuario() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -85,6 +86,11 @@ public class LogInUsuario extends javax.swing.JFrame {
         btnIngresar.setForeground(new java.awt.Color(0, 0, 0));
         btnIngresar.setText("Ingresar");
         btnIngresar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnIngresar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnIngresarMouseClicked(evt);
+            }
+        });
         btnIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnIngresarActionPerformed(evt);
@@ -97,6 +103,11 @@ public class LogInUsuario extends javax.swing.JFrame {
         btnRegistar.setForeground(new java.awt.Color(0, 0, 0));
         btnRegistar.setText("Registrar");
         btnRegistar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnRegistar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRegistarMouseClicked(evt);
+            }
+        });
         btnRegistar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistarActionPerformed(evt);
@@ -144,7 +155,15 @@ public class LogInUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_txtUsuarioActionPerformed
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
-        if (txtUsuario != null && pswContrasenna != null) 
+
+    }//GEN-LAST:event_btnIngresarActionPerformed
+
+    private void btnRegistarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistarActionPerformed
+
+    }//GEN-LAST:event_btnRegistarActionPerformed
+
+    private void btnIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarMouseClicked
+         if (txtUsuario != null && pswContrasenna != null) 
         {
            if (UsuarioController.autentificarUsuario(txtUsuario.getText(), new String(pswContrasenna.getPassword())))
            {
@@ -155,12 +174,12 @@ public class LogInUsuario extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(this,"No has ingresado los datos");
         }
-    }//GEN-LAST:event_btnIngresarActionPerformed
+    }//GEN-LAST:event_btnIngresarMouseClicked
 
-    private void btnRegistarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistarActionPerformed
-        RegistroUsuarioGym registroUsuario = new RegistroUsuarioGym();
-        registroUsuario.setVisible(true);
-    }//GEN-LAST:event_btnRegistarActionPerformed
+    private void btnRegistarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistarMouseClicked
+        AdminLogIn adminLogIn = new AdminLogIn();
+        adminLogIn.setVisible(true);
+    }//GEN-LAST:event_btnRegistarMouseClicked
 
     /**
      * @param args the command line arguments

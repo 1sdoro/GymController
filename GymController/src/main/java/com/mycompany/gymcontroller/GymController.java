@@ -5,12 +5,13 @@ package com.mycompany.gymcontroller;
  * @author Probo
  */
 
+import com.mycompany.gymcontroller.modelo.Administradores;
 import com.mycompany.gymcontroller.modelo.UsuarioMembresia;
 import com.mycompany.gymcontroller.modelo.Rutina;
 import com.mycompany.gymcontroller.modelo.Membresia;
 import com.mycompany.gymcontroller.modelo.Ejercicio;
 import com.mycompany.gymcontroller.pantallas.LogInUsuario;
-import com.mycompany.gymcontroller.pantallas.RegistroUsuarioGym;
+import com.mycompany.gymcontroller.pantallas.RegistroUsuario;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -19,6 +20,12 @@ public class GymController {
 
     public static void main(String[] args)
     {
+        
+        //creando los administradores
+        Administradores doro = new Administradores("Doro", "isdoroo");
+        Administradores will = new Administradores("William", "iswilliam");
+        Administradores gaboo = new Administradores("Gaboo", "isgaboo");
+        
         //creando la pantalla del login
 //        LogInUsuario logpantalla = new LogInUsuario();
 //        logpantalla.setVisible(true);
