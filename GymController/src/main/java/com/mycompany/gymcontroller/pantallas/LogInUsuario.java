@@ -5,6 +5,8 @@
 package com.mycompany.gymcontroller.pantallas;
 
 import com.mycompany.gymcontroller.GymController;
+import com.mycompany.gymcontroller.controllers.UsuarioController;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -29,25 +31,136 @@ public class LogInUsuario extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jlbUsuario = new javax.swing.JLabel();
+        jlbContrasenna = new javax.swing.JLabel();
+        txtUsuario = new javax.swing.JTextField();
+        pswContrasenna = new javax.swing.JPasswordField();
+        btnIngresar = new javax.swing.JButton();
+        btnRegistar = new javax.swing.JButton();
+        cbMostrarContra = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Log In");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, -1, 60));
+
+        jlbUsuario.setBackground(new java.awt.Color(255, 255, 255));
+        jlbUsuario.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jlbUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        jlbUsuario.setText("Usuario");
+        jPanel1.add(jlbUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
+
+        jlbContrasenna.setBackground(new java.awt.Color(255, 255, 255));
+        jlbContrasenna.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jlbContrasenna.setForeground(new java.awt.Color(255, 255, 255));
+        jlbContrasenna.setText("Contraseña");
+        jPanel1.add(jlbContrasenna, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, -1, -1));
+
+        txtUsuario.setBackground(new java.awt.Color(255, 255, 255));
+        txtUsuario.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtUsuario.setForeground(new java.awt.Color(0, 0, 0));
+        txtUsuario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        txtUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUsuarioActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 110, -1));
+
+        pswContrasenna.setBackground(new java.awt.Color(255, 255, 255));
+        pswContrasenna.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        pswContrasenna.setForeground(new java.awt.Color(0, 0, 0));
+        pswContrasenna.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(pswContrasenna, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 110, -1));
+
+        btnIngresar.setBackground(new java.awt.Color(255, 255, 255));
+        btnIngresar.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        btnIngresar.setForeground(new java.awt.Color(0, 0, 0));
+        btnIngresar.setText("Ingresar");
+        btnIngresar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnIngresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIngresarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, -1));
+
+        btnRegistar.setBackground(new java.awt.Color(255, 255, 255));
+        btnRegistar.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        btnRegistar.setForeground(new java.awt.Color(0, 0, 0));
+        btnRegistar.setText("Registrar");
+        btnRegistar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnRegistar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnRegistar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, -1, -1));
+
+        cbMostrarContra.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
+        cbMostrarContra.setForeground(new java.awt.Color(255, 255, 255));
+        cbMostrarContra.setText("Mostrar contraseña");
+        cbMostrarContra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbMostrarContraActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cbMostrarContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 722, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 439, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cbMostrarContraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbMostrarContraActionPerformed
+       if (cbMostrarContra.isSelected())
+       {
+           pswContrasenna.setEchoChar((char)0);
+       }
+       else
+       {
+           pswContrasenna.setEchoChar('*');
+       }
+    }//GEN-LAST:event_cbMostrarContraActionPerformed
+
+    private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUsuarioActionPerformed
+
+    private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
+        if (txtUsuario != null && pswContrasenna != null) 
+        {
+           if (UsuarioController.autentificarUsuario(txtUsuario.getText(), new String(pswContrasenna.getPassword())))
+           {
+               JOptionPane.showMessageDialog(this,"Bienvenido");
+           }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this,"No has ingresado los datos");
+        }
+    }//GEN-LAST:event_btnIngresarActionPerformed
+
+    private void btnRegistarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistarActionPerformed
+        RegistroUsuarioGym registroUsuario = new RegistroUsuarioGym();
+        registroUsuario.setVisible(true);
+    }//GEN-LAST:event_btnRegistarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -92,6 +205,14 @@ public class LogInUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnIngresar;
+    private javax.swing.JButton btnRegistar;
+    private javax.swing.JCheckBox cbMostrarContra;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jlbContrasenna;
+    private javax.swing.JLabel jlbUsuario;
+    private javax.swing.JPasswordField pswContrasenna;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

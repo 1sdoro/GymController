@@ -22,7 +22,7 @@ import java.util.List;
 public class UsuarioController 
 {
     private static final String FILE_NAME = "usuarios.dat";
-    private List<Usuario> usuarios;
+    private static  List<Usuario> usuarios;
 
     public UsuarioController() 
     {
@@ -31,14 +31,14 @@ public class UsuarioController
     }
     
     // Crear
-    public void agregarUsuario(Usuario usuario) 
+    public static void agregarUsuario(Usuario usuario) 
     {
         usuarios.add(usuario);
         guardarDatos();
     }
     
     // Leer
-    public Usuario obtenerUsuario(String usuario)
+    public static Usuario obtenerUsuario(String usuario)
     {
         if(buscarUsuario(usuario)!=-1)
         {
@@ -51,7 +51,7 @@ public class UsuarioController
     }
     
      // Actualizar
-    public boolean actualizarUsuarios(Usuario usuario) 
+    public static boolean actualizarUsuarios(Usuario usuario) 
     {
         if(buscarUsuario(usuario.getUsuario()) != -1)
         {
@@ -66,7 +66,7 @@ public class UsuarioController
     }
     
      // Borrar
-    public boolean borrarUsuario(String usuario) 
+    public static boolean borrarUsuario(String usuario) 
     {
         if (buscarUsuario(usuario) != -1)
         {
@@ -77,7 +77,7 @@ public class UsuarioController
         return false;
     }
     
-     private void cargarDatos() 
+     private static void cargarDatos() 
      {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(FILE_NAME))) 
         {
@@ -91,7 +91,7 @@ public class UsuarioController
         }
     }
      
-     private void guardarDatos() {
+     private static  void guardarDatos() {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(FILE_NAME))) 
         {
             oos.writeObject(usuarios);
@@ -101,7 +101,7 @@ public class UsuarioController
         }
     }
      
-     public int buscarUsuario(String usuario)
+     public static int buscarUsuario(String usuario)
      {
          int n= 0;
          for (int i = 0; i < usuarios.size(); i++) 
@@ -114,5 +114,22 @@ public class UsuarioController
          }
          return n;
      }
+     
+     public static boolean autentificarUsuario(String usuario, String contrasenna)
+    {
+        if (obtenerUsuario(usuario) !=null)
+        {
+            Usuario usuarioConsulta=obtenerUsuario(usuario);
+            if (usuarioConsulta.getUsuario().equals(usuario)&& usuarioConsulta.getContrasennaUsuario().equals(contrasenna))
+            {
+                return true;
+            }
+        }
+        else
+        {
+           return false;
+        }
+        return false;
+    }
     
 }
