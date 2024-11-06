@@ -21,6 +21,14 @@ public class Ejercicio {
         this.categoria = categoria;
     }
 
+    public Ejercicio(int iden, String nombre) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public Ejercicio(int NombreDelEjercicio, int Repeticiones) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     // Getters
     public int getId() {
         return id;
