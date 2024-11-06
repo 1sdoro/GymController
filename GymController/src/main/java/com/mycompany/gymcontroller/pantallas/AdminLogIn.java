@@ -31,6 +31,7 @@ public class AdminLogIn extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        lblError = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jlbUsuarioAdm = new javax.swing.JLabel();
         jlbContrasennaAdmin = new javax.swing.JLabel();
@@ -43,6 +44,11 @@ public class AdminLogIn extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblError.setBackground(new java.awt.Color(255, 255, 255));
+        lblError.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        lblError.setForeground(new java.awt.Color(153, 255, 102));
+        jPanel1.add(lblError, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 160, 50));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -92,13 +98,14 @@ public class AdminLogIn extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -116,12 +123,15 @@ public class AdminLogIn extends javax.swing.JFrame {
     }//GEN-LAST:event_chkMostrarActionPerformed
 //:(
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         if (txtUsuarioAdmin != null && psswAdmin != null) 
+         String auxUsuarioAdmin = txtUsuarioAdmin.getText();
+         String auxContrasennAdmin = psswAdmin.getText();
+        if (txtUsuarioAdmin != null && psswAdmin != null) 
+              
         {
-           if (AdminController.autentificarAdministrador(txtUsuarioAdmin.getText(), new String(psswAdmin.getPassword())))
+           boolean consulta = AdminController.autentificarAdministrador(auxUsuarioAdmin, auxContrasennAdmin);
+           if (consulta == true)
            {
-               JOptionPane.showMessageDialog(this,"Bienvenido Administrador");
-               
+               lblError.setText("Bienvenido");
                RegistroUsuario registroUsuario = new RegistroUsuario();
                registroUsuario.setVisible(true);
            }
@@ -174,6 +184,7 @@ public class AdminLogIn extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel jlbContrasennaAdmin;
     private javax.swing.JLabel jlbUsuarioAdm;
+    private javax.swing.JLabel lblError;
     private javax.swing.JPasswordField psswAdmin;
     private javax.swing.JTextField txtUsuarioAdmin;
     // End of variables declaration//GEN-END:variables

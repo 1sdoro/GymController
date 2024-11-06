@@ -36,10 +36,11 @@ public class LogInUsuario extends javax.swing.JFrame {
         jlbUsuario = new javax.swing.JLabel();
         jlbContrasenna = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
-        pswContrasenna = new javax.swing.JPasswordField();
+        psswContrasenna = new javax.swing.JPasswordField();
         btnIngresar = new javax.swing.JButton();
         btnRegistar = new javax.swing.JButton();
         cbMostrarContra = new javax.swing.JCheckBox();
+        lbBienvenido = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,11 +76,11 @@ public class LogInUsuario extends javax.swing.JFrame {
         });
         jPanel1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 110, -1));
 
-        pswContrasenna.setBackground(new java.awt.Color(255, 255, 255));
-        pswContrasenna.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        pswContrasenna.setForeground(new java.awt.Color(0, 0, 0));
-        pswContrasenna.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(pswContrasenna, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 110, -1));
+        psswContrasenna.setBackground(new java.awt.Color(255, 255, 255));
+        psswContrasenna.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        psswContrasenna.setForeground(new java.awt.Color(0, 0, 0));
+        psswContrasenna.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(psswContrasenna, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 110, -1));
 
         btnIngresar.setBackground(new java.awt.Color(255, 255, 255));
         btnIngresar.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
@@ -125,6 +126,10 @@ public class LogInUsuario extends javax.swing.JFrame {
         });
         jPanel1.add(cbMostrarContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, -1, -1));
 
+        lbBienvenido.setBackground(new java.awt.Color(255, 255, 255));
+        lbBienvenido.setForeground(new java.awt.Color(153, 255, 102));
+        jPanel1.add(lbBienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 90, 40));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -142,11 +147,11 @@ public class LogInUsuario extends javax.swing.JFrame {
     private void cbMostrarContraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbMostrarContraActionPerformed
        if (cbMostrarContra.isSelected())
        {
-           pswContrasenna.setEchoChar((char)0);
+           psswContrasenna.setEchoChar((char)0);
        }
        else
        {
-           pswContrasenna.setEchoChar('*');
+           psswContrasenna.setEchoChar('*');
        }
     }//GEN-LAST:event_cbMostrarContraActionPerformed
 
@@ -163,11 +168,16 @@ public class LogInUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegistarActionPerformed
 
     private void btnIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarMouseClicked
-         if (txtUsuario != null && pswContrasenna != null) 
+        String auxUsuario = txtUsuario.getText();
+        String auxContrasenna = psswContrasenna.getText();
+        if (txtUsuario != null && psswContrasenna != null) 
         {
-           if (UsuarioController.autentificarUsuario(txtUsuario.getText(), new String(pswContrasenna.getPassword())))
+//          Usuario consulta = UsuarioController.autentificarUsuario(auxUsuario, auxContrasenna);
+            UsuarioController u = new UsuarioController();
+           if (u.autentificarUsuario(auxUsuario, auxContrasenna)!=null)
            {
-               JOptionPane.showMessageDialog(this,"Bienvenido");
+               lbBienvenido.setText("Bienvenido");
+               this.setVisible(false);
            }
         }
         else
@@ -231,7 +241,8 @@ public class LogInUsuario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel jlbContrasenna;
     private javax.swing.JLabel jlbUsuario;
-    private javax.swing.JPasswordField pswContrasenna;
+    private javax.swing.JLabel lbBienvenido;
+    private javax.swing.JPasswordField psswContrasenna;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

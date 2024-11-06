@@ -19,7 +19,7 @@ public class Administradores
         this.nombreAdm = nombreAdm;
         this.contrasennaAdm = contrasennaAdm;
     }
-
+    
     public String getAdministrador() {
         return Administrador;
     }

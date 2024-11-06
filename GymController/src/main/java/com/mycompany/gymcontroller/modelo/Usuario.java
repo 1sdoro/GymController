@@ -10,29 +10,56 @@ package com.mycompany.gymcontroller.modelo;
  * @author Probo
  */
 public class Usuario {
-    private int cedulaUsuario;
+    private boolean isAdmin;
+    private String adminNombre;
+    private String adminContra;
     private String nombreUsuario;
     private String usuario;
     private String contrasennaUsuario;
 
-    public Usuario(int cedulaUsuario, String nombreUsuario, String usuario, String contrasennaUsuario)
+    public Usuario(String adminNombre, String adminContra) {
+        this.adminNombre = adminNombre;
+        this.adminContra = adminContra;
+    }
+
+    public String getAdminNombre() {
+        return adminNombre;
+    }
+
+    public void setAdminNombre(String adminNombre) {
+        this.adminNombre = adminNombre;
+    }
+
+    public String getAdminContra() {
+        return adminContra;
+    }
+
+    public void setAdminContra(String adminContra) {
+        this.adminContra = adminContra;
+    }
+
+    
+    
+    public Usuario(boolean isAdmin, String nombreUsuario, String usuario, String contrasennaUsuario)
     {
-        this.cedulaUsuario = cedulaUsuario;
+        this.isAdmin=isAdmin;
         this.nombreUsuario = nombreUsuario;
         this.usuario = usuario;
         this.contrasennaUsuario = contrasennaUsuario;
     }
 
-    public Usuario(int Cedula, String nombre, int Apellido) {
+    public boolean isIsAdmin() {
+        return isAdmin;
+    }
+
+    public void setIsAdmin(boolean isAdmin) {
+        this.isAdmin = isAdmin;
+    }
+
+    
+    
+    public Usuario(boolean isAdmin, String nombre, int Apellido) {
         throw new UnsupportedOperationException("Not supported yet."); 
-    }
-
-    public int getCedulaUsuario() {
-        return cedulaUsuario;
-    }
-
-    public void setCedulaUsuario(int cedulaUsuario) {
-        this.cedulaUsuario = cedulaUsuario;
     }
 
     public String getNombreUsuario() {

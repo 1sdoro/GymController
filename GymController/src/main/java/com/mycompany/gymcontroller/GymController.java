@@ -10,6 +10,7 @@ import com.mycompany.gymcontroller.modelo.UsuarioMembresia;
 import com.mycompany.gymcontroller.modelo.Rutina;
 import com.mycompany.gymcontroller.modelo.Membresia;
 import com.mycompany.gymcontroller.modelo.Ejercicio;
+import com.mycompany.gymcontroller.modelo.Usuario;
 import com.mycompany.gymcontroller.pantallas.LogInUsuario;
 import com.mycompany.gymcontroller.pantallas.RegistroUsuario;
 import java.util.ArrayList;
@@ -22,9 +23,9 @@ public class GymController {
     {
         
         //creando los administradores
-        Administradores doro = new Administradores("Doro", "isdoroo");
-        Administradores will = new Administradores("William", "iswilliam");
-        Administradores gaboo = new Administradores("Gaboo", "isgaboo");
+        Usuario doro = new Usuario("Doro", "isdoroo");
+        Usuario will = new Usuario("William", "iswilliam");
+        Usuario gaboo = new Usuario("Gaboo", "isgaboo");
         
         //creando la pantalla del login
 //        LogInUsuario logpantalla = new LogInUsuario();

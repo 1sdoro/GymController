@@ -68,21 +68,20 @@ public class AdminController
          return n;
      }
     
-    public static boolean autentificarAdministrador(String administrador, String contrasenna)
+    public static boolean autentificarAdministrador(String usuarioadminaux, String contrasennaadminaux)
     {
-        if (obtenerAdministrador(administrador) !=null)
-        {
-            Administradores administradorConsulta=obtenerAdministrador(administrador);
-            if (administradorConsulta.getAdministrador().equals(administrador)&& administradorConsulta.getContrasennaAdm().equals(contrasenna))
+            for (Administradores admins : administradores) 
             {
-                return true;
+                if (admins.getNombreAdm().equals(usuarioadminaux) && admins.getContrasennaAdm().equals(contrasennaadminaux)) 
+                {
+                    return true;
+                } 
+                else
+                {
+                    return false;
+                }
             }
-        }
-        else
-        {
-           return false;
-        }
-        return false;
+            return false;
     }
 
     

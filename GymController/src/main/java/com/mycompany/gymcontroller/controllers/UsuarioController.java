@@ -22,7 +22,7 @@ import java.util.List;
 public class UsuarioController 
 {
     private static final String FILE_NAME = "usuarios.dat";
-    private static  List<Usuario> usuarios;
+    private  List<Usuario> usuarios;
 
     public UsuarioController() 
     {
@@ -31,14 +31,14 @@ public class UsuarioController
     }
     
     // Crear
-    public static void agregarUsuario(Usuario usuario) 
+    public void agregarUsuario(Usuario usuario) 
     {
         usuarios.add(usuario);
         guardarDatos();
     }
     
     // Leer
-    public static Usuario obtenerUsuario(String usuario)
+    public Usuario obtenerUsuario(String usuario)
     {
         if(buscarUsuario(usuario)!=-1)
         {
@@ -51,33 +51,29 @@ public class UsuarioController
     }
     
      // Actualizar
-    public static boolean actualizarUsuarios(Usuario usuario) 
+    public void actualizarUsuarios(Usuario usuario) 
     {
         if(buscarUsuario(usuario.getUsuario()) != -1)
         {
             Usuario usuarioaux = obtenerUsuario(usuario.getUsuario());
             
             usuarioaux.setContrasennaUsuario(usuario.getContrasennaUsuario());
-            usuarioaux.setCedulaUsuario(usuario.getCedulaUsuario());
             usuarioaux.setNombreUsuario(usuario.getNombreUsuario());
             guardarDatos();
         }
-        return false;
     }
     
      // Borrar
-    public static boolean borrarUsuario(String usuario) 
+    public void borrarUsuario(String usuario) 
     {
         if (buscarUsuario(usuario) != -1)
         {
             usuarios.remove(buscarUsuario(usuario));
             guardarDatos();
-            return true;
         }
-        return false;
     }
     
-     private static void cargarDatos() 
+     private void cargarDatos() 
      {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(FILE_NAME))) 
         {
@@ -91,7 +87,7 @@ public class UsuarioController
         }
     }
      
-     private static  void guardarDatos() {
+     private void guardarDatos() {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(FILE_NAME))) 
         {
             oos.writeObject(usuarios);
@@ -101,7 +97,7 @@ public class UsuarioController
         }
     }
      
-     public static int buscarUsuario(String usuario)
+     public int buscarUsuario(String usuario)
      {
          int n= 0;
          for (int i = 0; i < usuarios.size(); i++) 
@@ -115,21 +111,16 @@ public class UsuarioController
          return n;
      }
      
-     public static boolean autentificarUsuario(String usuario, String contrasenna)
+     public  Usuario autentificarUsuario(String usuario, String contrasenna)
     {
-        if (obtenerUsuario(usuario) !=null)
-        {
-            Usuario usuarioConsulta=obtenerUsuario(usuario);
-            if (usuarioConsulta.getUsuario().equals(usuario)&& usuarioConsulta.getContrasennaUsuario().equals(contrasenna))
+       for (Usuario usuariosConsult : usuarios) 
             {
-                return true;
+                if (usuariosConsult.getNombreUsuario().equals(usuario) && usuariosConsult.getContrasennaUsuario().equals(contrasenna)) 
+                {
+                   return usuariosConsult;
+                } 
             }
-        }
-        else
-        {
-           return false;
-        }
-        return false;
+       return null;
     }
     
 }
