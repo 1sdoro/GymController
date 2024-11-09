@@ -5,6 +5,7 @@
 package com.mycompany.gymcontroller.pantallas;
 
 import com.mycompany.gymcontroller.GymController;
+import com.mycompany.gymcontroller.controllers.EjercicioController;
 import com.mycompany.gymcontroller.modelo.Ejercicio;
 
 /**
@@ -13,7 +14,7 @@ import com.mycompany.gymcontroller.modelo.Ejercicio;
  */
 public class Ejercicios extends javax.swing.JPanel {
 
-
+    EjercicioController ec = new EjercicioController();
     public Ejercicios() {
         initComponents();
     }
@@ -35,6 +36,7 @@ public class Ejercicios extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         btnIngresar = new javax.swing.JButton();
+        lblError = new javax.swing.JLabel();
 
         jLabel1.setText("Ejercicios");
 
@@ -57,12 +59,16 @@ public class Ejercicios extends javax.swing.JPanel {
             }
         });
 
+        lblError.setForeground(new java.awt.Color(204, 0, 0));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(lblError, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15))
             .addGroup(layout.createSequentialGroup()
@@ -93,8 +99,10 @@ public class Ejercicios extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblError))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -116,13 +124,13 @@ public class Ejercicios extends javax.swing.JPanel {
               NombreDelEjercicio = Integer.parseInt(ide);
             }catch(Exception e)
             {
-               btnIngresar .setText(e.getMessage());
+               lblError.setText(e.getMessage());
                 return;
             }
             String nombre = btnIngresar.getText();
-            GymController GymController = new GymController();
             Ejercicio u = new Ejercicio(NombreDelEjercicio, Repeticiones);
-            app.EjercicioController(u);
+            ec.agregarEjercicio(u);
+            
         }
     }//GEN-LAST:event_btnIngresarMouseClicked
 
@@ -135,6 +143,7 @@ public class Ejercicios extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JLabel lblError;
     private javax.swing.JTextArea txtEjercicio;
     // End of variables declaration//GEN-END:variables
 }
