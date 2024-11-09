@@ -30,17 +30,17 @@ public class Ejercicios extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lblCategoria = new javax.swing.JLabel();
         btnIngresar = new javax.swing.JButton();
         lblError = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
-        txtRepeticiones = new javax.swing.JTextField();
+        txtCategoria = new javax.swing.JTextField();
 
         jLabel1.setText("Ejercicios");
 
         jLabel2.setText("Nombre del ejercicio");
 
-        jLabel3.setText("Repeticiones");
+        lblCategoria.setText("Categoria");
 
         btnIngresar.setText("Ingresar");
         btnIngresar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -69,14 +69,14 @@ public class Ejercicios extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
+                            .addComponent(lblCategoria)
                             .addComponent(jLabel2)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(txtRepeticiones, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(317, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -89,9 +89,9 @@ public class Ejercicios extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel3)
+                .addComponent(lblCategoria)
                 .addGap(5, 5, 5)
-                .addComponent(txtRepeticiones, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -103,29 +103,26 @@ public class Ejercicios extends javax.swing.JPanel {
     private void btnIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarMouseClicked
         // TODO add your handling code here:
         String nombre = "";
-        int repeticiones = 0;
+        String categoria = "";
         if(txtNombre.getText().length()==0)
         {
             lblError.setText("Debes digitar un identificación");
-        }else if(txtRepeticiones.getText().length()==0)
+        }else if(txtCategoria.getText().length()==0)
         {
             lblError.setText("Debes digitar un Nombre");
         }else
         {
 
-            try
-            {
-              repeticiones = Integer.parseInt(txtRepeticiones.getText());
-            }catch(Exception e)
-            {
-               lblError.setText(e.getMessage());
-                return;
-            }
+        
             nombre = txtNombre.getText();
-            Ejercicio u = new Ejercicio(nombre, repeticiones);
+            categoria = txtCategoria.getText();
+            Ejercicio u = new Ejercicio(nombre, categoria);
             ec.agregarEjercicio(u);
             
             
+            
+            
+ 
         }
     }//GEN-LAST:event_btnIngresarMouseClicked
 
@@ -134,9 +131,9 @@ public class Ejercicios extends javax.swing.JPanel {
     private javax.swing.JButton btnIngresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel lblCategoria;
     private javax.swing.JLabel lblError;
+    private javax.swing.JTextField txtCategoria;
     private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtRepeticiones;
     // End of variables declaration//GEN-END:variables
 }

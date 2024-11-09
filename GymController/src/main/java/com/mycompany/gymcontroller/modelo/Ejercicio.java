@@ -17,18 +17,10 @@ public class Ejercicio implements Serializable{
     private String categoria;
 
     // Constructor
-    public Ejercicio(String nombre, int id) {
-        this.id = id;
+    public Ejercicio(String nombre, String categoria) {
+        this.id = (int) Math.random();
         this.nombre = nombre;
         this.categoria = categoria;
-    }
-
-    public Ejercicio(int iden, String nombre) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public Ejercicio(int NombreDelEjercicio, int Repeticiones) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     // Getters
