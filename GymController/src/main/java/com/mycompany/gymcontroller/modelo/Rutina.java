@@ -30,6 +30,10 @@ public class Rutina {
         this.repeticiones = repeticiones;
     }
 
+    public Rutina(String ejercicioNombre) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     // Getters
     public int getId() {
         return id;

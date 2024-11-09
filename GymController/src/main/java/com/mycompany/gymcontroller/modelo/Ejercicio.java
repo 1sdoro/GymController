@@ -15,7 +15,7 @@ public class Ejercicio {
     private String categoria;
 
     // Constructor
-    public Ejercicio(int id, String nombre, String categoria) {
+    public Ejercicio(String nombre, int id) {
         this.id = id;
         this.nombre = nombre;
         this.categoria = categoria;

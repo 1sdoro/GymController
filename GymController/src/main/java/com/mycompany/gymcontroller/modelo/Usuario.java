@@ -1,5 +1,8 @@
 package com.mycompany.gymcontroller.modelo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -85,5 +88,19 @@ public class Usuario {
     public void setContrasennaUsuario(String contrasennaUsuario) {
         this.contrasennaUsuario = contrasennaUsuario;
     }
+    
+    private List<Rutina> rutinas;  // Lista de rutinas asignadas al usuario
+
+public Usuario() {
+    rutinas = new ArrayList<>();  // Inicializar lista
+}
+
+public void agregarRutina(Rutina rutina) {
+    rutinas.add(rutina);
+}
+
+public List<Rutina> getRutinas() {
+    return rutinas;
+}
 }
 

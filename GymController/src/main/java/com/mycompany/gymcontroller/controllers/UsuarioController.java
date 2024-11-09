@@ -4,6 +4,7 @@
  */
 package com.mycompany.gymcontroller.controllers;
 
+import com.mycompany.gymcontroller.modelo.Rutina;
 import com.mycompany.gymcontroller.modelo.Usuario;
 import com.mycompany.gymcontroller.modelo.Usuario;
 import java.io.FileInputStream;
@@ -122,5 +123,15 @@ public class UsuarioController
             }
        return null;
     }
+     
+     public void asignarRutinaAUsuario(String usuarioNombre, Rutina rutina) {
+    Usuario usuario = obtenerUsuario(usuarioNombre);
+    if (usuario != null) {
+        usuario.agregarRutina(rutina);
+        guardarDatos();  // Guardar cambios en el archivo
+    } else {
+        System.out.println("Usuario no encontrado.");
+    }
+}
     
 }

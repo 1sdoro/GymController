@@ -62,70 +62,92 @@ public class GymController {
 //        }
     }
 
+     private List<Ejercicio> listaEjercicios;
+
+    public GymController() {
+        listaEjercicios = new ArrayList<>();
+        // Agrega aquí los ejercicios o llámalos desde otro método
+    }
+    
+    private List<Ejercicio> ejercicios;
+
+    {
+        this.ejercicios = new ArrayList<>();
+    }
+
+    public void agregarEjercicio(Ejercicio ejercicio) {
+        ejercicios.add(ejercicio);
+    }
+
+    public List<Ejercicio> obtenerEjercicios() {
+        return ejercicios;
+    }
+
+    
     // Método para inicializar ejercicios
     private static List<Ejercicio> inicializarEjercicios() {
         List<Ejercicio> ejercicios = new ArrayList<>();
         
         
         // Ejercicios de Fuerza
-        ejercicios.add(new Ejercicio(1, "Press de banca", "Fuerza"));
-        ejercicios.add(new Ejercicio(2, "Sentadillas", "Fuerza"));
-        ejercicios.add(new Ejercicio(3, "Peso muerto", "Fuerza"));
-        ejercicios.add(new Ejercicio(4, "Press militar", "Fuerza"));
-        ejercicios.add(new Ejercicio(5, "Curl de biceps", "Fuerza"));
-        ejercicios.add(new Ejercicio(6, "Extensiones de triceps", "Fuerza"));
-        ejercicios.add(new Ejercicio(7, "Remo con barra", "Fuerza"));
-        ejercicios.add(new Ejercicio(8, "Elevacion de gemelos", "Fuerza"));
-        ejercicios.add(new Ejercicio(9, "Dominadas", "Fuerza"));
-        ejercicios.add(new Ejercicio(10, "Elevaciones laterales de hombros", "Fuerza"));
+        ejercicios.add(new Ejercicio("Press de banca", 1));
+        ejercicios.add(new Ejercicio("Sentadillas", 2));
+        ejercicios.add(new Ejercicio("Peso muerto", 3));
+        ejercicios.add(new Ejercicio("Press militar", 4));
+        ejercicios.add(new Ejercicio("Curl de biceps", 5));
+        ejercicios.add(new Ejercicio("Extensiones de triceps", 6));
+        ejercicios.add(new Ejercicio("Remo con barra", 7));
+        ejercicios.add(new Ejercicio("Elevacion de gemelos", 8));
+        ejercicios.add(new Ejercicio("Dominadas", 9));
+        ejercicios.add(new Ejercicio("Elevaciones laterales de hombros", 10));
 
         // Ejercicios de Cardio
-        ejercicios.add(new Ejercicio(11, "Correr en cinta", "Cardio"));
-        ejercicios.add(new Ejercicio(12, "Saltar la cuerda", "Cardio"));
-        ejercicios.add(new Ejercicio(13, "Eliptica", "Cardio"));
-        ejercicios.add(new Ejercicio(14, "Remo", "Cardio"));
-        ejercicios.add(new Ejercicio(15, "Ciclismo", "Cardio"));
-        ejercicios.add(new Ejercicio(16, "Burpees", "Cardio"));
-        ejercicios.add(new Ejercicio(17, "Mountain climbers", "Cardio"));
-        ejercicios.add(new Ejercicio(18, "Box jumps", "Cardio"));
-        ejercicios.add(new Ejercicio(19, "Sprints", "Cardio"));
-        ejercicios.add(new Ejercicio(20, "Escaladora", "Cardio"));
+        ejercicios.add(new Ejercicio("Correr en cinta", 11));
+        ejercicios.add(new Ejercicio("Saltar la cuerda", 12));
+        ejercicios.add(new Ejercicio("Eliptica", 13));
+        ejercicios.add(new Ejercicio("Remo", 14));
+        ejercicios.add(new Ejercicio("Ciclismo", 15));
+        ejercicios.add(new Ejercicio("Burpees", 16));
+        ejercicios.add(new Ejercicio("Mountain climbers", 17));
+        ejercicios.add(new Ejercicio("Box jumps", 18));
+        ejercicios.add(new Ejercicio("Sprints", 19));
+        ejercicios.add(new Ejercicio("Escaladora", 20));
 
         // Ejercicios de Flexibilidad
-        ejercicios.add(new Ejercicio(21, "Estiramientos de piernas", "Flexibilidad"));
-        ejercicios.add(new Ejercicio(22, "Yoga", "Flexibilidad"));
-        ejercicios.add(new Ejercicio(23, "Estiramientos de brazos", "Flexibilidad"));
-        ejercicios.add(new Ejercicio(24, "Estiramientos de espalda", "Flexibilidad"));
-        ejercicios.add(new Ejercicio(25, "Estiramientos de cuello", "Flexibilidad"));
-        ejercicios.add(new Ejercicio(26, "Rotaciones de tronco", "Flexibilidad"));
-        ejercicios.add(new Ejercicio(27, "Flexiones hacia adelante", "Flexibilidad"));
-        ejercicios.add(new Ejercicio(28, "Flexiones laterales", "Flexibilidad"));
-        ejercicios.add(new Ejercicio(29, "Movilidad de hombros", "Flexibilidad"));
-        ejercicios.add(new Ejercicio(30, "Postura del nino", "Flexibilidad"));
+        ejercicios.add(new Ejercicio("Estiramientos de piernas", 21));
+        ejercicios.add(new Ejercicio("Yoga", 22));
+        ejercicios.add(new Ejercicio("Estiramientos de brazos", 23));
+        ejercicios.add(new Ejercicio("Estiramientos de espalda", 24));
+        ejercicios.add(new Ejercicio("Estiramientos de cuello", 25));
+        ejercicios.add(new Ejercicio("Rotaciones de tronco", 26));
+        ejercicios.add(new Ejercicio("Flexiones hacia adelante", 27));
+        ejercicios.add(new Ejercicio("Flexiones laterales", 28));
+        ejercicios.add(new Ejercicio("Movilidad de hombros", 29));
+        ejercicios.add(new Ejercicio("Postura del nino", 30));
 
         // Ejercicios de Equilibrio
-        ejercicios.add(new Ejercicio(31, "Plancha", "Equilibrio"));
-        ejercicios.add(new Ejercicio(32, "Equilibrio en una pierna", "Equilibrio"));
-        ejercicios.add(new Ejercicio(33, "Elevaciones de talones", "Equilibrio"));
-        ejercicios.add(new Ejercicio(34, "Postura del arbol (Yoga)", "Equilibrio"));
-        ejercicios.add(new Ejercicio(35, "Desplantes", "Equilibrio"));
-        ejercicios.add(new Ejercicio(36, "Sentadilla con una pierna", "Equilibrio"));
-        ejercicios.add(new Ejercicio(37, "Paso lateral con goma", "Equilibrio"));
-        ejercicios.add(new Ejercicio(38, "Balanceo sobre Bosu", "Equilibrio"));
-        ejercicios.add(new Ejercicio(39, "Plank con levantamiento de pierna", "Equilibrio"));
-        ejercicios.add(new Ejercicio(40, "Kettlebell swings", "Equilibrio"));
+        ejercicios.add(new Ejercicio("Plancha", 31));
+        ejercicios.add(new Ejercicio("Equilibrio en una pierna", 32));
+        ejercicios.add(new Ejercicio("Elevaciones de talones", 33));
+        ejercicios.add(new Ejercicio("Postura del arbol (Yoga)", 34));
+        ejercicios.add(new Ejercicio("Desplantes", 35));
+        ejercicios.add(new Ejercicio("Sentadilla con una pierna", 36));
+        ejercicios.add(new Ejercicio("Paso lateral con goma", 37));
+        ejercicios.add(new Ejercicio("Balanceo sobre Bosu", 38));
+        ejercicios.add(new Ejercicio("Plank con levantamiento de pierna", 39));
+        ejercicios.add(new Ejercicio("Kettlebell swings", 40));
 
         // Ejercicios de Resistencia
-        ejercicios.add(new Ejercicio(41, "Circuito de pesas", "Resistencia"));
-        ejercicios.add(new Ejercicio(42, "CrossFit", "Resistencia"));
-        ejercicios.add(new Ejercicio(43, "Battle ropes", "Resistencia"));
-        ejercicios.add(new Ejercicio(44, "Slam ball", "Resistencia"));
-        ejercicios.add(new Ejercicio(45, "Flexiones con rotacion", "Resistencia"));
-        ejercicios.add(new Ejercicio(46, "Kettlebell thrusters", "Resistencia"));
-        ejercicios.add(new Ejercicio(47, "Man makers", "Resistencia"));
-        ejercicios.add(new Ejercicio(48, "Rope climbing", "Resistencia"));
-        ejercicios.add(new Ejercicio(49, "Farmer's carry", "Resistencia"));
-        ejercicios.add(new Ejercicio(50, "Ski erg", "Resistencia"));
+        ejercicios.add(new Ejercicio("Circuito de pesas", 41));
+        ejercicios.add(new Ejercicio("CrossFit", 42));
+        ejercicios.add(new Ejercicio("Battle ropes", 43));
+        ejercicios.add(new Ejercicio("Slam ball", 44));
+        ejercicios.add(new Ejercicio("Flexiones con rotacion", 45));
+        ejercicios.add(new Ejercicio("Kettlebell thrusters", 46));
+        ejercicios.add(new Ejercicio("Man makers", 47));
+        ejercicios.add(new Ejercicio("Rope climbing", 48));
+        ejercicios.add(new Ejercicio("Farmer's carry", 49));
+        ejercicios.add(new Ejercicio("Ski erg", 50));
 
         return ejercicios;
     }
@@ -144,4 +166,8 @@ public class GymController {
     public void LogInUsuario(LogInUsuario u) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    //public void agregarEjercicio(Ejercicio ejercicio) {
+     //   throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    //}
 }
