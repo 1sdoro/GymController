@@ -119,12 +119,14 @@ public class RegistroUsuario extends javax.swing.JFrame {
         }else if(txtContra.getText().length()==0)
         {
             lbMensaje.setText("Debes digitar una contraseña");
-        }else
+        }
+        else
         {
             UsuarioController nuevoU = new UsuarioController();
             Usuario u = new Usuario();
             u.setNombreUsuario(txtNombre.getText());
             u.setContrasennaUsuario(txtContra.getText());
+            nuevoU.agregarUsuario(u);
             lbMensaje2.setText("Usuario Registrado");
             this.setVisible(false);
              RegistroUsuario registroUsuario = new RegistroUsuario();

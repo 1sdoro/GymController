@@ -116,6 +116,7 @@ public class LogInUsuario extends javax.swing.JFrame {
         });
         jPanel1.add(btnRegistar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, -1, -1));
 
+        cbMostrarContra.setBackground(new java.awt.Color(0, 0, 0));
         cbMostrarContra.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
         cbMostrarContra.setForeground(new java.awt.Color(255, 255, 255));
         cbMostrarContra.setText("Mostrar contraseña");
@@ -134,7 +135,7 @@ public class LogInUsuario extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,6 +179,8 @@ public class LogInUsuario extends javax.swing.JFrame {
            {
                lbMensaje.setText("Bienvenido");
                this.setVisible(false);
+               Principal p = new Principal();
+               p.setVisible(true);
            }
         }
         else
