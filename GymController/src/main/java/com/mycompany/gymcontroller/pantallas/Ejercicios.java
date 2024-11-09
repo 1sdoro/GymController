@@ -29,24 +29,14 @@ public class Ejercicios extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txtEjercicio = new javax.swing.JTextArea();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         btnIngresar = new javax.swing.JButton();
         lblError = new javax.swing.JLabel();
+        txtNombre = new javax.swing.JTextField();
+        txtRepeticiones = new javax.swing.JTextField();
 
         jLabel1.setText("Ejercicios");
-
-        txtEjercicio.setColumns(20);
-        txtEjercicio.setRows(5);
-        jScrollPane1.setViewportView(txtEjercicio);
-
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2);
 
         jLabel2.setText("Nombre del ejercicio");
 
@@ -76,14 +66,18 @@ public class Ejercicios extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(163, 163, 163)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jLabel2)))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(151, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(txtRepeticiones, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(317, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -93,42 +87,42 @@ public class Ejercicios extends javax.swing.JPanel {
                 .addGap(5, 5, 5)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(5, 5, 5)
+                .addComponent(txtRepeticiones, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblError))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(139, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarMouseClicked
         // TODO add your handling code here:
-        if(btnIngresar.getText().length()==0)
+        String nombre = "";
+        int repeticiones = 0;
+        if(txtNombre.getText().length()==0)
         {
             lblError.setText("Debes digitar un identificación");
-        }else if(btnIngresar.getText().length()==0)
+        }else if(txtRepeticiones.getText().length()==0)
         {
             lblError.setText("Debes digitar un Nombre");
         }else
         {
-            String ide = btnIngresar.getText();
-            int NombreDelEjercicio = 0;
-            int Repeticiones = 0;
+
             try
             {
-              NombreDelEjercicio = Integer.parseInt(ide);
+              repeticiones = Integer.parseInt(txtRepeticiones.getText());
             }catch(Exception e)
             {
                lblError.setText(e.getMessage());
                 return;
             }
-            String nombre = btnIngresar.getText();
-            Ejercicio u = new Ejercicio(NombreDelEjercicio, Repeticiones);
+            nombre = txtNombre.getText();
+            Ejercicio u = new Ejercicio(nombre, repeticiones);
             ec.agregarEjercicio(u);
             
         }
@@ -140,10 +134,8 @@ public class Ejercicios extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JLabel lblError;
-    private javax.swing.JTextArea txtEjercicio;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtRepeticiones;
     // End of variables declaration//GEN-END:variables
 }
