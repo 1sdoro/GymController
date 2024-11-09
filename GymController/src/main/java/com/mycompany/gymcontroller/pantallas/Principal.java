@@ -4,6 +4,7 @@
  */
 package com.mycompany.gymcontroller.pantallas;
 
+import com.mycompany.gymcontroller.controllers.UsuarioController;
 import com.mycompany.gymcontroller.modelo.Rutina;
 
 /**
@@ -11,13 +12,18 @@ import com.mycompany.gymcontroller.modelo.Rutina;
  * @author Dorothea Ramirez
  */
 public class Principal extends javax.swing.JFrame {
+    
+     UsuarioController u = new UsuarioController();
 
     /**
      * Creates new form Principal
      */
     public Principal() {
         initComponents();
+        cargarDatos("");
         this.setLocationRelativeTo(null);
+        
+        
         
     }
 
@@ -39,6 +45,7 @@ public class Principal extends javax.swing.JFrame {
         jmListaEjercicio = new javax.swing.JMenuItem();
         jmMostrarEjercicios = new javax.swing.JMenuItem();
         jmAgregarRutina = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -94,6 +101,9 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jmAgregarRutina);
+
+        jMenuItem1.setText("Usuarios");
+        jMenu1.add(jMenuItem1);
 
         jMenuBar1.add(jMenu1);
 
@@ -201,6 +211,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JMenuItem jmAgregarRutina;
