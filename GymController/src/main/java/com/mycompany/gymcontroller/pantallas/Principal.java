@@ -4,6 +4,8 @@
  */
 package com.mycompany.gymcontroller.pantallas;
 
+import com.mycompany.gymcontroller.modelo.Rutina;
+
 /**
  *
  * @author Dorothea Ramirez
@@ -32,7 +34,8 @@ public class Principal extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jmCrearMantenimiento = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        jmMostrarEjercicios = new javax.swing.JMenuItem();
+        jmAgregarRutina = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -57,8 +60,21 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem2);
 
-        jMenuItem3.setText("jMenuItem3");
-        jMenu1.add(jMenuItem3);
+        jmMostrarEjercicios.setText("Mostrar Ejercicios");
+        jmMostrarEjercicios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jmMostrarEjerciciosMousePressed(evt);
+            }
+        });
+        jMenu1.add(jmMostrarEjercicios);
+
+        jmAgregarRutina.setText("Agregar Rutina");
+        jmAgregarRutina.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jmAgregarRutinaMousePressed(evt);
+            }
+        });
+        jMenu1.add(jmAgregarRutina);
 
         jMenuBar1.add(jMenu1);
 
@@ -93,6 +109,22 @@ public class Principal extends javax.swing.JFrame {
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jmAgregarRutinaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmAgregarRutinaMousePressed
+        
+        SeleccionarRutinas jmAgregarRutina = new SeleccionarRutinas();
+        this.setContentPane(jmAgregarRutina);
+        jmAgregarRutina.setVisible(true);
+        
+    }//GEN-LAST:event_jmAgregarRutinaMousePressed
+
+    private void jmMostrarEjerciciosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmMostrarEjerciciosMousePressed
+        
+        PanelRutina jmMostrarEjercicios = new PanelRutina();
+        this.setContentPane(jmMostrarEjercicios);
+        jmMostrarEjercicios.setVisible(true);
+        
+    }//GEN-LAST:event_jmMostrarEjerciciosMousePressed
 
     /**
      * @param args the command line arguments
@@ -134,8 +166,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JMenuItem jmAgregarRutina;
     private javax.swing.JMenuItem jmCrearMantenimiento;
+    private javax.swing.JMenuItem jmMostrarEjercicios;
     // End of variables declaration//GEN-END:variables
 }
