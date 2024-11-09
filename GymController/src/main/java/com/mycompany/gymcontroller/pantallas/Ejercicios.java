@@ -7,6 +7,7 @@ package com.mycompany.gymcontroller.pantallas;
 import com.mycompany.gymcontroller.GymController;
 import com.mycompany.gymcontroller.controllers.EjercicioController;
 import com.mycompany.gymcontroller.modelo.Ejercicio;
+import java.awt.Color;
 
 /**
  *
@@ -118,6 +119,11 @@ public class Ejercicios extends javax.swing.JPanel {
             categoria = txtCategoria.getText();
             Ejercicio u = new Ejercicio(nombre, categoria);
             ec.agregarEjercicio(u);
+            
+            txtNombre.setText("");
+            txtCategoria.setText("");
+            lblError.setText("Guardado exitosdamente");
+            lblError.setForeground(Color.green);
             
             
             

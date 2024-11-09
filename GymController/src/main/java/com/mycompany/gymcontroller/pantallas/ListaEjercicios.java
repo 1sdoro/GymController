@@ -17,6 +17,10 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ListaEjercicios extends javax.swing.JPanel {
 
+    static void setText(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     EjercicioController ec = new EjercicioController();
     /**
      * Creates new form ListaEjercicios
