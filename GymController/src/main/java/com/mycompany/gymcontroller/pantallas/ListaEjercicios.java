@@ -149,6 +149,7 @@ public class ListaEjercicios extends javax.swing.JPanel {
         double Cardio1 = Double.valueOf(btnBuscar.getText());
         double Resistencia1 = Double.valueOf(btnBuscar.getText());
         mt.addRow(new Object[]{Fuerza1, Cardio1, Cardio1  });
+        //LIMPIAR CASILLAS DE TEXTO
         f1.setText("");
         c2.setText("");
         r3.setText("");
