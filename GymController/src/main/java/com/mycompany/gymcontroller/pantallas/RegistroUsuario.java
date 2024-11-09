@@ -4,6 +4,9 @@
  */
 package com.mycompany.gymcontroller.pantallas;
 
+import com.mycompany.gymcontroller.controllers.UsuarioController;
+import com.mycompany.gymcontroller.modelo.Usuario;
+
 /**
  *
  * @author Dorothea Ramirez
@@ -30,9 +33,11 @@ public class RegistroUsuario extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtContra = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnRegistrar = new javax.swing.JButton();
+        lbMensaje = new javax.swing.JLabel();
+        lbMensaje2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,34 +53,52 @@ public class RegistroUsuario extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Contraseña");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Nombre");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, -1, -1));
 
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 110, -1));
+        txtContra.setBackground(new java.awt.Color(255, 255, 255));
+        txtContra.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtContra.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(txtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 110, -1));
 
         txtNombre.setBackground(new java.awt.Color(255, 255, 255));
         txtNombre.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         txtNombre.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 110, -1));
+        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 110, -1));
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("Registrar Usuario");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, -1, -1));
+        btnRegistrar.setBackground(new java.awt.Color(255, 255, 255));
+        btnRegistrar.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        btnRegistrar.setForeground(new java.awt.Color(0, 0, 0));
+        btnRegistrar.setText("Registrar Usuario");
+        btnRegistrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRegistrarMouseClicked(evt);
+            }
+        });
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, -1, -1));
+
+        lbMensaje.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
+        lbMensaje.setForeground(new java.awt.Color(255, 0, 0));
+        jPanel1.add(lbMensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, 220, 30));
+
+        lbMensaje2.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        lbMensaje2.setForeground(new java.awt.Color(153, 255, 51));
+        jPanel1.add(lbMensaje2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, 190, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 351, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,6 +107,30 @@ public class RegistroUsuario extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+      
+    }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void btnRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarMouseClicked
+         if(txtNombre.getText().length()==0)
+        {
+            lbMensaje.setText("Debes digitar un nombre");
+        }else if(txtContra.getText().length()==0)
+        {
+            lbMensaje.setText("Debes digitar una contraseña");
+        }else
+        {
+            UsuarioController nuevoU = new UsuarioController();
+            Usuario u = new Usuario();
+            u.setNombreUsuario(txtNombre.getText());
+            u.setContrasennaUsuario(txtContra.getText());
+            lbMensaje2.setText("Usuario Registrado");
+            this.setVisible(false);
+             RegistroUsuario registroUsuario = new RegistroUsuario();
+             registroUsuario.setVisible(true);
+        }
+    }//GEN-LAST:event_btnRegistrarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -121,12 +168,14 @@ public class RegistroUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnRegistrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel lbMensaje;
+    private javax.swing.JLabel lbMensaje2;
+    private javax.swing.JTextField txtContra;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }

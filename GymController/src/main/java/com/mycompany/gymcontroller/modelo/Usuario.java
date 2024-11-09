@@ -41,10 +41,8 @@ public class Usuario implements Serializable{
     public void setAdminContra(String adminContra) {
         this.adminContra = adminContra;
     }
-
     
-    
-    public Usuario(boolean isAdmin, String nombreUsuario, String usuario, String contrasennaUsuario)
+    public Usuario(String nombreUsuario, String usuario, String contrasennaUsuario)
     {
         this.isAdmin=isAdmin;
         this.nombreUsuario = nombreUsuario;

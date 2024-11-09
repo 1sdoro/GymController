@@ -6,6 +6,7 @@ package com.mycompany.gymcontroller.pantallas;
 
 
 import com.mycompany.gymcontroller.GymController;
+import com.mycompany.gymcontroller.controllers.EjercicioController;
 import com.mycompany.gymcontroller.modelo.Ejercicio;
 import java.awt.Component;
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ import javax.swing.JScrollPane;
 public class PanelRutina extends javax.swing.JPanel {
 
 
-    
+    EjercicioController e = new EjercicioController();
     // Declarar los componentes de la interfaz panelCheckBoxes seleccionarRutinasPanel
 
 
@@ -42,7 +43,7 @@ public class PanelRutina extends javax.swing.JPanel {
     // Método para cargar los ejercicios en el panel
     public void cargarEjercicios(GymController gymController) {
     // Obtener la lista de ejercicios desde el GymController
-    List<Ejercicio> listaEjercicios = gymController.obtenerEjercicios();
+    List<Ejercicio> listaEjercicios = e.obtenerEjercicios();
     
     // Limpiar cualquier contenido previo del panel de checkboxes
     panelCheckBoxes.removeAll();

@@ -40,7 +40,7 @@ public class LogInUsuario extends javax.swing.JFrame {
         btnIngresar = new javax.swing.JButton();
         btnRegistar = new javax.swing.JButton();
         cbMostrarContra = new javax.swing.JCheckBox();
-        lbBienvenido = new javax.swing.JLabel();
+        lbMensaje = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -126,9 +126,9 @@ public class LogInUsuario extends javax.swing.JFrame {
         });
         jPanel1.add(cbMostrarContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, -1, -1));
 
-        lbBienvenido.setBackground(new java.awt.Color(255, 255, 255));
-        lbBienvenido.setForeground(new java.awt.Color(153, 255, 102));
-        jPanel1.add(lbBienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 90, 40));
+        lbMensaje.setBackground(new java.awt.Color(255, 255, 255));
+        lbMensaje.setForeground(new java.awt.Color(153, 255, 102));
+        jPanel1.add(lbMensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 120, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -176,19 +176,19 @@ public class LogInUsuario extends javax.swing.JFrame {
             UsuarioController u = new UsuarioController();
            if (u.autentificarUsuario(auxUsuario, auxContrasenna)!=null)
            {
-               lbBienvenido.setText("Bienvenido");
+               lbMensaje.setText("Bienvenido");
                this.setVisible(false);
            }
         }
         else
         {
-            JOptionPane.showMessageDialog(this,"No has ingresado los datos");
+           lbMensaje.setText("No has Ingresado los datos");
         }
     }//GEN-LAST:event_btnIngresarMouseClicked
 
     private void btnRegistarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistarMouseClicked
-        AdminLogIn adminLogIn = new AdminLogIn();
-        adminLogIn.setVisible(true);
+        RegistroUsuario registroUsuario = new RegistroUsuario();
+        registroUsuario.setVisible(true);
     }//GEN-LAST:event_btnRegistarMouseClicked
 
     /**
@@ -241,7 +241,7 @@ public class LogInUsuario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel jlbContrasenna;
     private javax.swing.JLabel jlbUsuario;
-    private javax.swing.JLabel lbBienvenido;
+    private javax.swing.JLabel lbMensaje;
     private javax.swing.JPasswordField psswContrasenna;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
