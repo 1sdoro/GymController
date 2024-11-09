@@ -110,10 +110,10 @@ public class Ejercicios extends javax.swing.JPanel {
         // TODO add your handling code here:
         if(btnIngresar.getText().length()==0)
         {
-            btnIngresar.setText("Debes digitar un identificación");
+            lblError.setText("Debes digitar un identificación");
         }else if(btnIngresar.getText().length()==0)
         {
-            btnIngresar.setText("Debes digitar un Nombre");
+            lblError.setText("Debes digitar un Nombre");
         }else
         {
             String ide = btnIngresar.getText();
