@@ -1,5 +1,6 @@
 package com.mycompany.gymcontroller.modelo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,7 @@ import java.util.List;
  *
  * @author Probo
  */
-public class Usuario {
+public class Usuario implements Serializable{
     private boolean isAdmin;
     private String adminNombre;
     private String adminContra;

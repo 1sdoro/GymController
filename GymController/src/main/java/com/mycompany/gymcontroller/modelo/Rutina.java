@@ -8,10 +8,11 @@ package com.mycompany.gymcontroller.modelo;
  *
  * @author William Arias
  */
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Rutina {
+public class Rutina implements Serializable{
     // Atributos
     private int id;
     private int idUsuario;

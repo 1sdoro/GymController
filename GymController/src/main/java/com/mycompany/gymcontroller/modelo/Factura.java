@@ -9,9 +9,10 @@ package com.mycompany.gymcontroller.modelo;
  * @author William Arias
  */
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Factura {
+public class Factura implements Serializable{
     // Atributos
     private int idFactura;
     private int idUsuario;

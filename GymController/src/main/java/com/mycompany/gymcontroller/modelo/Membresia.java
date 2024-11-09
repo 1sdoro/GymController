@@ -4,12 +4,14 @@
  */
 package com.mycompany.gymcontroller.modelo;
 
+import java.io.Serializable;
+
 /**
  *
  * @author William Arias
  */
 
-public class Membresia {
+public class Membresia implements Serializable{
     // Atributos
     private int id;
     private String nombre;
