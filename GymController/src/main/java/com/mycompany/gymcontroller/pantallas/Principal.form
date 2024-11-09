@@ -25,6 +25,22 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem2ActionPerformed"/>
               </Events>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jmEjercicios">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ejercicios"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jmEjerciciosMousePressed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jmListaEjercicio">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Lista Ejercicio"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jmListaEjercicioMousePressed"/>
+              </Events>
+            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jmMostrarEjercicios">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Mostrar Ejercicios"/>

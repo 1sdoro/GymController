@@ -34,6 +34,8 @@ public class Principal extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jmCrearMantenimiento = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jmEjercicios = new javax.swing.JMenuItem();
+        jmListaEjercicio = new javax.swing.JMenuItem();
         jmMostrarEjercicios = new javax.swing.JMenuItem();
         jmAgregarRutina = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
@@ -59,6 +61,22 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMenuItem2);
+
+        jmEjercicios.setText("Ejercicios");
+        jmEjercicios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jmEjerciciosMousePressed(evt);
+            }
+        });
+        jMenu1.add(jmEjercicios);
+
+        jmListaEjercicio.setText("Lista Ejercicio");
+        jmListaEjercicio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jmListaEjercicioMousePressed(evt);
+            }
+        });
+        jMenu1.add(jmListaEjercicio);
 
         jmMostrarEjercicios.setText("Mostrar Ejercicios");
         jmMostrarEjercicios.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -126,6 +144,23 @@ public class Principal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jmMostrarEjerciciosMousePressed
 
+    private void jmEjerciciosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmEjerciciosMousePressed
+        
+        Ejercicios jmEjercicios = new Ejercicios();
+        this.setContentPane(jmEjercicios);
+        jmEjercicios.setVisible(true);
+        
+        
+    }//GEN-LAST:event_jmEjerciciosMousePressed
+
+    private void jmListaEjercicioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmListaEjercicioMousePressed
+        
+        ListaEjercicios jmListaEjercicio = new ListaEjercicios();
+        this.setContentPane(jmListaEjercicio);
+        jmListaEjercicio.setVisible(true);
+        
+    }//GEN-LAST:event_jmListaEjercicioMousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -169,6 +204,12 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JMenuItem jmAgregarRutina;
     private javax.swing.JMenuItem jmCrearMantenimiento;
+    private javax.swing.JMenuItem jmEjercicios;
+    private javax.swing.JMenuItem jmListaEjercicio;
     private javax.swing.JMenuItem jmMostrarEjercicios;
     // End of variables declaration//GEN-END:variables
+
+    private void setContentPaEjerciciosne(Ejercicios jmEjercicios) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
