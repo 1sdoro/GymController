@@ -29,10 +29,13 @@ public class ListaEjercicios extends javax.swing.JPanel {
     
     public void cargarDatos(String categoria)
     {
-        List<Ejercicio> list = ec.obtenerEjercicios();
-        Optional<Ejercicio> o = list.stream().filter(e->e.getCategoria()==categoria).findAny();
-        ArrayList<Ejercicio> array = o.map(List::of).map(ArrayList::new).orElseGet(ArrayList::new);
-        Object [][] v = new Object[list.size()][3];
+        List<Ejercicio> array = ec.obtenerEjercicios();
+        if(!categoria.equals(""))
+        {
+             Optional<Ejercicio> o = array.stream().filter(e->e.getCategoria()==categoria).findAny();
+             array = o.map(List::of).map(ArrayList::new).orElseGet(ArrayList::new);
+        }
+        Object [][] v = new Object[array.size()][3];
         int contador = 0;
         for (Ejercicio e : array) {
            v[contador][0] = e.getId();
