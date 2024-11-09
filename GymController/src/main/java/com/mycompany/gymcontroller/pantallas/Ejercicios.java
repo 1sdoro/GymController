@@ -125,6 +125,7 @@ public class Ejercicios extends javax.swing.JPanel {
             Ejercicio u = new Ejercicio(nombre, repeticiones);
             ec.agregarEjercicio(u);
             
+            
         }
     }//GEN-LAST:event_btnIngresarMouseClicked
 
