@@ -46,6 +46,7 @@ public class Principal extends javax.swing.JFrame {
         jmMostrarEjercicios = new javax.swing.JMenuItem();
         jmAgregarRutina = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jmMembresia = new javax.swing.JCheckBoxMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -104,6 +105,15 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuItem1.setText("Usuarios");
         jMenu1.add(jMenuItem1);
+
+        jmMembresia.setSelected(true);
+        jmMembresia.setText("Membresia");
+        jmMembresia.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jmMembresiaMousePressed(evt);
+            }
+        });
+        jMenu1.add(jmMembresia);
 
         jMenuBar1.add(jMenu1);
 
@@ -172,6 +182,13 @@ public class Principal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jmListaEjercicioMousePressed
 
+    private void jmMembresiaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmMembresiaMousePressed
+        // TODO add your handling code here:
+        PanelMembresia jmMembresia = new PanelMembresia();
+        this.setContentPane(jmMembresia);
+        jmMembresia.setVisible(true);
+    }//GEN-LAST:event_jmMembresiaMousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -218,6 +235,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmCrearMantenimiento;
     private javax.swing.JMenuItem jmEjercicios;
     private javax.swing.JMenuItem jmListaEjercicio;
+    private javax.swing.JCheckBoxMenuItem jmMembresia;
     private javax.swing.JMenuItem jmMostrarEjercicios;
     // End of variables declaration//GEN-END:variables
 
