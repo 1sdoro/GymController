@@ -41,11 +41,11 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="txtNombre" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtCorreo" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="lblNombre" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="lblCorreo" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtnombre" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtCorreo" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtTipodeMembresia" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblTipoDeMembresia" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="lblTipodeMembresia" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="291" max="32767" attributes="0"/>
@@ -56,15 +56,15 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                  <Component id="txtnombre" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="lblNombre" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="txtCorreo" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtNombre" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="lblCorreo" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="txtTipodeMembresia" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtCorreo" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="lblTipoDeMembresia" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="lblTipodeMembresia" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="130" max="32767" attributes="0"/>
@@ -73,26 +73,26 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JTextField" name="lblNombre">
+        <Component class="javax.swing.JTextField" name="txtNombre">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lblNombreActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNombreActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="lblCorreo">
+        <Component class="javax.swing.JTextField" name="txtCorreo">
         </Component>
         <Component class="javax.swing.JTextField" name="lblTipodeMembresia">
         </Component>
-        <Component class="javax.swing.JLabel" name="txtnombre">
+        <Component class="javax.swing.JLabel" name="lblNombre">
           <Properties>
             <Property name="text" type="java.lang.String" value="Nombre"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="txtCorreo">
+        <Component class="javax.swing.JLabel" name="lblCorreo">
           <Properties>
             <Property name="text" type="java.lang.String" value="Correo"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="txtTipodeMembresia">
+        <Component class="javax.swing.JLabel" name="lblTipoDeMembresia">
           <Properties>
             <Property name="text" type="java.lang.String" value="Tipo de Membres&#xed;a"/>
           </Properties>

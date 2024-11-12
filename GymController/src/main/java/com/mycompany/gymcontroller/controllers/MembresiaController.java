@@ -5,6 +5,7 @@
 package com.mycompany.gymcontroller.controllers;
 
 import com.mycompany.gymcontroller.modelo.UsuarioMembresia;
+import com.mycompany.gymcontroller.pantallas.Membresia;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -19,6 +20,10 @@ import java.util.List;
  * @author Probo
  */
 public class MembresiaController {
+
+    public void agregarMembesia(Membresia u) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     public class UsuarioMembresiaController {
     
    private static final String FILE_NAME = "ControladorDeUsuarios.dat";

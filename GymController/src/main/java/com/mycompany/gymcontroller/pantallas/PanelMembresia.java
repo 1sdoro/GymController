@@ -4,6 +4,9 @@
  */
 package com.mycompany.gymcontroller.pantallas;
 
+import com.mycompany.gymcontroller.controllers.MembresiaController;
+import java.awt.Color;
+
 /**
  *
  * @author William Arias
@@ -28,26 +31,26 @@ public class PanelMembresia extends javax.swing.JPanel {
 
         jTextField2 = new javax.swing.JTextField();
         panelFormulario = new javax.swing.JPanel();
-        lblNombre = new javax.swing.JTextField();
-        lblCorreo = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
+        txtCorreo = new javax.swing.JTextField();
         lblTipodeMembresia = new javax.swing.JTextField();
-        txtnombre = new javax.swing.JLabel();
-        txtCorreo = new javax.swing.JLabel();
-        txtTipodeMembresia = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
+        lblCorreo = new javax.swing.JLabel();
+        lblTipoDeMembresia = new javax.swing.JLabel();
 
         jTextField2.setText("jTextField2");
 
-        lblNombre.addActionListener(new java.awt.event.ActionListener() {
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lblNombreActionPerformed(evt);
+                txtNombreActionPerformed(evt);
             }
         });
 
-        txtnombre.setText("Nombre");
+        lblNombre.setText("Nombre");
 
-        txtCorreo.setText("Correo");
+        lblCorreo.setText("Correo");
 
-        txtTipodeMembresia.setText("Tipo de Membresía");
+        lblTipoDeMembresia.setText("Tipo de Membresía");
 
         javax.swing.GroupLayout panelFormularioLayout = new javax.swing.GroupLayout(panelFormulario);
         panelFormulario.setLayout(panelFormularioLayout);
@@ -56,11 +59,11 @@ public class PanelMembresia extends javax.swing.JPanel {
             .addGroup(panelFormularioLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtnombre)
-                    .addComponent(txtCorreo)
-                    .addComponent(txtTipodeMembresia)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNombre)
+                    .addComponent(lblCorreo)
+                    .addComponent(lblTipoDeMembresia)
                     .addComponent(lblTipodeMembresia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(291, Short.MAX_VALUE))
         );
@@ -68,15 +71,15 @@ public class PanelMembresia extends javax.swing.JPanel {
             panelFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelFormularioLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addComponent(txtnombre)
+                .addComponent(lblNombre)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtCorreo)
+                .addComponent(lblCorreo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtTipodeMembresia)
+                .addComponent(lblTipoDeMembresia)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblTipodeMembresia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(130, Short.MAX_VALUE))
@@ -94,19 +97,48 @@ public class PanelMembresia extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lblNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblNombreActionPerformed
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_lblNombreActionPerformed
+        String nombre = "";
+        String correo= "";
+        String TipoDeMebresia= "";
+        if(txtNombre.getText().length()==0)
+        {
+            lblCorreo.setText("Debes digitar un correo");
+        }else if(txtCorreo.getText().length()==0)
+        {
+            lblNombre.setText("Debes digitar un Nombre");
+        }else
+        {
+
+        
+            nombre = txtNombre.getText();
+            correo = txtCorreo.getText();
+            MembresiaController ac = new MembresiaController();
+            Membresia u = new Membresia(nombre, correo);
+            ac.agregarMembesia(u);
+            
+            txtNombre.setText("");
+            txtCorreo.setText("");
+            lblNombre.setText("Guardado exitosdamente");
+            lblCorreo.setForeground(Color.green);
+            
+            
+            
+            
+ 
+        }
+    }//GEN-LAST:event_txtNombreActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField lblCorreo;
-    private javax.swing.JTextField lblNombre;
+    private javax.swing.JLabel lblCorreo;
+    private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblTipoDeMembresia;
     private javax.swing.JTextField lblTipodeMembresia;
     private javax.swing.JPanel panelFormulario;
-    private javax.swing.JLabel txtCorreo;
-    private javax.swing.JLabel txtTipodeMembresia;
-    private javax.swing.JLabel txtnombre;
+    private javax.swing.JTextField txtCorreo;
+    private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }
