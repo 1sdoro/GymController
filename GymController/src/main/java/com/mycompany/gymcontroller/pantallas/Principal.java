@@ -12,15 +12,11 @@ import com.mycompany.gymcontroller.modelo.Rutina;
  * @author Dorothea Ramirez
  */
 public class Principal extends javax.swing.JFrame {
-    
-     UsuarioController u = new UsuarioController();
-
     /**
      * Creates new form Principal
      */
     public Principal() {
         initComponents();
-        cargarDatos("");
         this.setLocationRelativeTo(null);
         
         

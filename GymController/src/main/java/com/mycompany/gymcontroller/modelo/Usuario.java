@@ -14,6 +14,7 @@ import java.util.List;
  * @author Probo
  */
 public class Usuario implements Serializable{
+    private int id;
     private boolean isAdmin;
     private String adminNombre;
     private String adminContra;
@@ -21,11 +22,28 @@ public class Usuario implements Serializable{
     private String usuario;
     private String contrasennaUsuario;
 
+    public Usuario(int id, String nombreUsuario, String contrasennaUsuario) {
+        this.id = id;
+        this.nombreUsuario = nombreUsuario;
+        this.contrasennaUsuario = contrasennaUsuario;
+    }
+
+    
     public Usuario(String adminNombre, String adminContra) {
         this.adminNombre = adminNombre;
         this.adminContra = adminContra;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    
+    
     public String getAdminNombre() {
         return adminNombre;
     }

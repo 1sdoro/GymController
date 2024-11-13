@@ -23,6 +23,7 @@ import java.util.List;
 public class UsuarioController 
 {
     private static final String FILE_NAME = "usuarios.dat";
+    private static int ultimoId = 0; // Variable estática para llevar la cuenta del último ID
     private  List<Usuario> usuarios;
 
     public UsuarioController() 
@@ -31,36 +32,31 @@ public class UsuarioController
         cargarDatos();
     }
     
+    private int generarNuevoId() {
+        return ++ultimoId; // Incrementar y devolver el nuevo ID
+    }
+    
     // Crear
     public void agregarUsuario(Usuario usuario) 
     {
+        usuario.setId(generarNuevoId()); // Asignar un nuevo ID al usuario
         usuarios.add(usuario);
         guardarDatos();
     }
     
     // Leer
-    public Usuario obtenerUsuario(String usuario)
-    {
-        if(buscarUsuario(usuario)!=-1)
-        {
-            return usuarios.get(buscarUsuario(usuario));
-        }
-        else
-        {
-            return null;
-        }
+   public List<Usuario> obtenerUsuarioList()
+   {
+        return usuarios;
     }
-    
+      
      // Actualizar
-    public void actualizarUsuarios(Usuario usuario) 
-    {
-        if(buscarUsuario(usuario.getUsuario()) != -1)
-        {
-            Usuario usuarioaux = obtenerUsuario(usuario.getUsuario());
-            
-            usuarioaux.setContrasennaUsuario(usuario.getContrasennaUsuario());
-            usuarioaux.setNombreUsuario(usuario.getNombreUsuario());
+  public void actualizarUsuario(int index, Usuario nuevoUsuario) {
+        if (index >= 0 && index < usuarios.size()) {
+            usuarios.set(index, nuevoUsuario);
             guardarDatos();
+        } else {
+            System.out.println("Índice no válido");
         }
     }
     
@@ -124,14 +120,27 @@ public class UsuarioController
        return null;
     }
      
-     public void asignarRutinaAUsuario(String usuarioNombre, Rutina rutina) {
-    Usuario usuario = obtenerUsuario(usuarioNombre);
-    if (usuario != null) {
-        usuario.agregarRutina(rutina);
-        guardarDatos();  // Guardar cambios en el archivo
-    } else {
-        System.out.println("Usuario no encontrado.");
-    }
-}
+     
+//     public Usuario obtenerUsuarioR(String usuarioNombre) 
+//     {
+//         for (Usuario usuario : usuarios) 
+//         {
+//             if (usuario.getNombreUsuario().equals(usuarioNombre))
+//             {
+//                 return usuario;
+//             }
+//         }
+//         return null;
+//     }
+     
+//     public void asignarRutinaAUsuario(String usuarioNombre, Rutina rutina) {
+//    Usuario usuario = obtenerUsuarioR(usuarioNombre);
+//    if (usuario != null) {
+//        usuario.agregarRutina(rutina);
+//        guardarDatos();  // Guardar cambios en el archivo
+//    } else {
+//        System.out.println("Usuario no encontrado.");
+//    }
+//}
     
 }
