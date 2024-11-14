@@ -41,7 +41,8 @@ public class ListaEjercicios extends javax.swing.JPanel {
         }
         Object [][] v = new Object[array.size()][3];
         int contador = 0;
-        for (Ejercicio e : array) {
+        for (Ejercicio e : array) 
+        {
            v[contador][0] = e.getId();
            v[contador][1] = e.getNombre();
            v[contador][2] = e.getCategoria();

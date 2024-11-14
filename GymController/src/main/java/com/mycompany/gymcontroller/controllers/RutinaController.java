@@ -72,28 +72,28 @@ public class RutinaController {
         }
     }
     
-     public Usuario obtenerUsuarioR(String usuarioNombre) 
-     {
-         for (Usuario usuario : usuarios) 
-         {
-             if (usuario.getNombreUsuario().equals(usuarioNombre))
-             {
-                 return usuario;
-             }
-         }
-         return null;
-     }
-    
-    //pasar obtener a rutinaC
-    public void asignarRutinaAUsuario(String usuarioNombre, Rutina rutina) {
-    Usuario usuario = obtenerUsuarioR(usuarioNombre);
-    if (usuario != null) {
-        usuario.agregarRutina(rutina);
-        guardarDatos();  // Guardar cambios en el archivo
-    } else {
-        System.out.println("Usuario no encontrado.");
-    }
-}
+//     public Usuario obtenerUsuarioR(String usuarioNombre) 
+//     {
+//         for (Usuario usuario : usuarios) 
+//         {
+//             if (usuario.getNombreUsuario().equals(usuarioNombre))
+//             {
+//                 return usuario;
+//             }
+//         }
+//         return null;
+//     }
+//    
+//    pasar obtener a rutinaC
+//    public void asignarRutinaAUsuario(String usuarioNombre, Rutina rutina) {
+//    Usuario usuario = obtenerUsuarioR(usuarioNombre);
+//    if (usuario != null) {
+//        usuario.agregarRutina(rutina);
+//        guardarDatos();  // Guardar cambios en el archivo
+//    } else {
+//        System.out.println("Usuario no encontrado.");
+//    }
+//}
     
 }
 
