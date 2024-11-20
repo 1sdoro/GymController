@@ -4,71 +4,60 @@
  */
 package com.mycompany.gymcontroller.pantallas;
 
-
-import com.mycompany.gymcontroller.GymController;
 import com.mycompany.gymcontroller.controllers.EjercicioController;
 import com.mycompany.gymcontroller.modelo.Ejercicio;
 import java.awt.Component;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-import javax.swing.BoxLayout;
 import javax.swing.JCheckBox;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
+import javax.swing.JOptionPane;
 
-/**
- *
- * @author William Arias
- */
+
+
+
 public class PanelRutina extends javax.swing.JPanel {
 
+    // Referencia al controlador de ejercicios
+    private EjercicioController ejercicioController;
 
-    EjercicioController e = new EjercicioController();
-    // Declarar los componentes de la interfaz panelCheckBoxes seleccionarRutinasPanel
-
-
-
-
-
-
-    // Constructor de la clase
-    public PanelRutina() {
-        initComponents(); 
-        
-        
+    public PanelRutina(EjercicioController ejercicioController) {
+        initComponents();
+         ejercicioController = new EjercicioController();
     }
-    
 
-    // Método para cargar los ejercicios en el panel
-    public void cargarEjercicios(GymController gymController) {
-    // Obtener la lista de ejercicios desde el GymController
-    List<Ejercicio> listaEjercicios = e.obtenerEjercicios();
-    
-    // Limpiar cualquier contenido previo del panel de checkboxes
+    PanelRutina() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void cargarEjercicios() {
+    // Limpia el panel para evitar duplicados
     panelCheckBoxes.removeAll();
 
-    // Añadir un JCheckBox para cada ejercicio
-    for (Ejercicio ejercicio : listaEjercicios) {
-        JCheckBox checkBox = new JCheckBox(ejercicio.getNombre()); // Crear checkbox con el nombre del ejercicio
-        panelCheckBoxes.add(checkBox); // Añadir el checkbox al panel
+    // Obtiene la lista de ejercicios desde el controlador
+    List<Ejercicio> ejercicios = ejercicioController.obtenerEjercicios();
+    for (Ejercicio ejercicio : ejercicios) {
+        JCheckBox checkBox = new JCheckBox(ejercicio.getNombre() + " (" + ejercicio.getCategoria() + ")");
+        panelCheckBoxes.add(checkBox); // Añade el checkbox al panel
     }
 
-    // Actualizar la vista para que se reflejen los cambios
+    // Refresca el panel para mostrar los nuevos componentes
     panelCheckBoxes.revalidate();
     panelCheckBoxes.repaint();
 }
     
-    public void cargarRutinas(List<Ejercicio> ejercicios) {
-    // Convertir la lista de objetos `Ejercicio` a una lista de nombres (String)
-    List<String> nombresEjercicios = ejercicios.stream()
-                                               .map(Ejercicio::getNombre)
-                                               .collect(Collectors.toList());
+    private void procesarSeleccionados() {
+    StringBuilder seleccionados = new StringBuilder("Ejercicios seleccionados:\n");
 
-    
+    for (Component comp : panelCheckBoxes.getComponents()) {
+        if (comp instanceof JCheckBox) {
+            JCheckBox checkBox = (JCheckBox) comp;
+            if (checkBox.isSelected()) {
+                seleccionados.append(checkBox.getText()).append("\n");
+            }
+        }
+    }
+
+    JOptionPane.showMessageDialog(this, seleccionados.toString());
 }
-
-    // Este método es llamado al hacer clic en el botón de "Cargar Ejercicios"
 
 
     /**
@@ -80,104 +69,97 @@ public class PanelRutina extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        PanelRutina = new javax.swing.JPanel();
         btnCargarEjercicios = new javax.swing.JButton();
-        btnGuardarSeleccion = new javax.swing.JButton();
-        scrollPanelEjercicios = new javax.swing.JScrollPane();
+        btnProcesarSeleccionados = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
         panelCheckBoxes = new javax.swing.JPanel();
 
-        setBackground(new java.awt.Color(0, 0, 0));
-
-        btnCargarEjercicios.setText("Cargar ejercicios");
+        btnCargarEjercicios.setText("Cargar Ejercicios");
         btnCargarEjercicios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCargarEjerciciosActionPerformed(evt);
             }
         });
 
-        btnGuardarSeleccion.setText("Guardar Seleccion");
-        btnGuardarSeleccion.addActionListener(new java.awt.event.ActionListener() {
+        btnProcesarSeleccionados.setText("Procesar Seleccionados");
+        btnProcesarSeleccionados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarSeleccionActionPerformed(evt);
+                btnProcesarSeleccionadosActionPerformed(evt);
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel1.setText("Lista Ejercicios");
+
         panelCheckBoxes.setLayout(new javax.swing.BoxLayout(panelCheckBoxes, javax.swing.BoxLayout.Y_AXIS));
-        scrollPanelEjercicios.setViewportView(panelCheckBoxes);
+        jScrollPane1.setViewportView(panelCheckBoxes);
+
+        javax.swing.GroupLayout PanelRutinaLayout = new javax.swing.GroupLayout(PanelRutina);
+        PanelRutina.setLayout(PanelRutinaLayout);
+        PanelRutinaLayout.setHorizontalGroup(
+            PanelRutinaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelRutinaLayout.createSequentialGroup()
+                .addGroup(PanelRutinaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelRutinaLayout.createSequentialGroup()
+                        .addGap(135, 135, 135)
+                        .addComponent(jLabel1))
+                    .addGroup(PanelRutinaLayout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addGroup(PanelRutinaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(PanelRutinaLayout.createSequentialGroup()
+                                .addComponent(btnCargarEjercicios)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnProcesarSeleccionados)))))
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
+        PanelRutinaLayout.setVerticalGroup(
+            PanelRutinaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelRutinaLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PanelRutinaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCargarEjercicios)
+                    .addComponent(btnProcesarSeleccionados))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnCargarEjercicios)
-                        .addGap(355, 355, 355)
-                        .addComponent(btnGuardarSeleccion))
-                    .addComponent(scrollPanelEjercicios, javax.swing.GroupLayout.PREFERRED_SIZE, 599, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(62, Short.MAX_VALUE))
+            .addComponent(PanelRutina, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(scrollPanelEjercicios, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnCargarEjercicios)
-                    .addComponent(btnGuardarSeleccion))
-                .addGap(50, 50, 50))
+            .addComponent(PanelRutina, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCargarEjerciciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarEjerciciosActionPerformed
-        
-btnCargarEjercicios.addActionListener(e -> {
-    
-    GymController gymController = new GymController();
-    cargarEjercicios(gymController);
-});
 
+         cargarEjercicios();
+        
     }//GEN-LAST:event_btnCargarEjerciciosActionPerformed
 
-    private void btnGuardarSeleccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarSeleccionActionPerformed
+    private void btnProcesarSeleccionadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcesarSeleccionadosActionPerformed
 
-        // Crear una lista para almacenar los ejercicios seleccionados
-    List<Ejercicio> ejerciciosSeleccionados = new ArrayList<>();
-
-    // Iterar sobre los checkboxes en el panel
-    for (Component comp : panelCheckBoxes.getComponents()) {
-        if (comp instanceof JCheckBox) {
-            JCheckBox checkBox = (JCheckBox) comp;
-            if (checkBox.isSelected()) {
-                String nombreEjercicio = checkBox.getText();
-                Ejercicio ejercicio = buscarEjercicioPorNombre(nombreEjercicio);
-                if (ejercicio != null) {
-                    ejerciciosSeleccionados.add(ejercicio);  // Añadir el ejercicio seleccionado a la lista
-                }
-            }
-        }
-    }
-
-    // Pasar los ejercicios seleccionados al método cargarRutinas
-    cargarRutinas(ejerciciosSeleccionados);
-
-    }//GEN-LAST:event_btnGuardarSeleccionActionPerformed
+        procesarSeleccionados();
+        
+    }//GEN-LAST:event_btnProcesarSeleccionadosActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel PanelRutina;
     private javax.swing.JButton btnCargarEjercicios;
-    private javax.swing.JButton btnGuardarSeleccion;
+    private javax.swing.JButton btnProcesarSeleccionados;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel panelCheckBoxes;
-    private javax.swing.JScrollPane scrollPanelEjercicios;
     // End of variables declaration//GEN-END:variables
-
-    private Ejercicio buscarEjercicioPorNombre(String nombreEjercicio) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    // Variables de instancia para GymController y Lista de Ejercicios
-
 }
-
