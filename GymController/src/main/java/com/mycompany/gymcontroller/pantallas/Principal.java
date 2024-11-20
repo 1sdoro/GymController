@@ -34,14 +34,14 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        mPrincipal = new javax.swing.JMenu();
         jmCrearMantenimiento = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        jmCrearUsuario = new javax.swing.JMenuItem();
         jmEjercicios = new javax.swing.JMenuItem();
         jmListaEjercicio = new javax.swing.JMenuItem();
         jmMostrarEjercicios = new javax.swing.JMenuItem();
         jmAgregarRutina = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jmUsuariosC = new javax.swing.JMenuItem();
         jmMembresia = new javax.swing.JCheckBoxMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
@@ -49,69 +49,74 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jMenu1.setText("Mantenimiento");
+        mPrincipal.setText("Mantenimiento");
 
-        jmCrearMantenimiento.setText("Crear mantenimiejnto");
-        jmCrearMantenimiento.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jmCrearMantenimientoMousePressed(evt);
-            }
-        });
-        jMenu1.add(jmCrearMantenimiento);
-
-        jMenuItem2.setText("Crear usuario");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        jmCrearMantenimiento.setText("Crear mantenimiento");
+        jmCrearMantenimiento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                jmCrearMantenimientoActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem2);
+        mPrincipal.add(jmCrearMantenimiento);
+
+        jmCrearUsuario.setText("Crear usuario");
+        jmCrearUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmCrearUsuarioActionPerformed(evt);
+            }
+        });
+        mPrincipal.add(jmCrearUsuario);
 
         jmEjercicios.setText("Ejercicios");
-        jmEjercicios.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jmEjerciciosMousePressed(evt);
+        jmEjercicios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmEjerciciosActionPerformed(evt);
             }
         });
-        jMenu1.add(jmEjercicios);
+        mPrincipal.add(jmEjercicios);
 
         jmListaEjercicio.setText("Lista Ejercicio");
-        jmListaEjercicio.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jmListaEjercicioMousePressed(evt);
+        jmListaEjercicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmListaEjercicioActionPerformed(evt);
             }
         });
-        jMenu1.add(jmListaEjercicio);
+        mPrincipal.add(jmListaEjercicio);
 
         jmMostrarEjercicios.setText("Mostrar Ejercicios");
-        jmMostrarEjercicios.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jmMostrarEjerciciosMousePressed(evt);
+        jmMostrarEjercicios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmMostrarEjerciciosActionPerformed(evt);
             }
         });
-        jMenu1.add(jmMostrarEjercicios);
+        mPrincipal.add(jmMostrarEjercicios);
 
         jmAgregarRutina.setText("Agregar Rutina");
-        jmAgregarRutina.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jmAgregarRutinaMousePressed(evt);
+        jmAgregarRutina.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmAgregarRutinaActionPerformed(evt);
             }
         });
-        jMenu1.add(jmAgregarRutina);
+        mPrincipal.add(jmAgregarRutina);
 
-        jMenuItem1.setText("Usuarios");
-        jMenu1.add(jMenuItem1);
+        jmUsuariosC.setText("Usuarios");
+        jmUsuariosC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmUsuariosCActionPerformed(evt);
+            }
+        });
+        mPrincipal.add(jmUsuariosC);
 
         jmMembresia.setSelected(true);
         jmMembresia.setText("Membresia");
-        jmMembresia.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jmMembresiaMousePressed(evt);
+        jmMembresia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmMembresiaActionPerformed(evt);
             }
         });
-        jMenu1.add(jmMembresia);
+        mPrincipal.add(jmMembresia);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(mPrincipal);
 
         jMenu2.setText("Edit");
         jMenuBar1.add(jMenu2);
@@ -132,58 +137,63 @@ public class Principal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jmCrearMantenimientoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmCrearMantenimientoMousePressed
+    private void jmCrearUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmCrearUsuarioActionPerformed
         // TODO add your handling code here:
-     
+//        RegistroUsuario crearUsuario = new RegistroUsuario();
+//        this.setContentPane(crearUsuario);
+//        crearUsuario.setVisible(true);
+        RegistroUsuario registroUsuario = new RegistroUsuario();
+        registroUsuario.setVisible(true);
+    }//GEN-LAST:event_jmCrearUsuarioActionPerformed
+
+    private void jmUsuariosCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmUsuariosCActionPerformed
+        // TODO add your handling code here:
+         ListaUsuarios  pUsuarios = new ListaUsuarios();
+         this.setContentPane(pUsuarios);    
+         pUsuarios.setVisible(true);
+    }//GEN-LAST:event_jmUsuariosCActionPerformed
+
+    private void jmCrearMantenimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmCrearMantenimientoActionPerformed
+        // TODO add your handling code here:
         ListaEjercicios crearMantenimiento = new ListaEjercicios();
         this.setContentPane(crearMantenimiento);
         crearMantenimiento.setVisible(true);
-        
-    }//GEN-LAST:event_jmCrearMantenimientoMousePressed
+    }//GEN-LAST:event_jmCrearMantenimientoActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void jmListaEjercicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmListaEjercicioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
-
-    private void jmAgregarRutinaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmAgregarRutinaMousePressed
-        
-        SeleccionarRutinas jmAgregarRutina = new SeleccionarRutinas();
-        this.setContentPane(jmAgregarRutina);
-        jmAgregarRutina.setVisible(true);
-        
-    }//GEN-LAST:event_jmAgregarRutinaMousePressed
-
-    private void jmMostrarEjerciciosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmMostrarEjerciciosMousePressed
-        
-        PanelRutina jmMostrarEjercicios = new PanelRutina();
-        this.setContentPane(jmMostrarEjercicios);
-        jmMostrarEjercicios.setVisible(true);
-        
-    }//GEN-LAST:event_jmMostrarEjerciciosMousePressed
-
-    private void jmEjerciciosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmEjerciciosMousePressed
-        
-        Ejercicios jmEjercicios = new Ejercicios();
-        this.setContentPane(jmEjercicios);
-        jmEjercicios.setVisible(true);
-        
-        
-    }//GEN-LAST:event_jmEjerciciosMousePressed
-
-    private void jmListaEjercicioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmListaEjercicioMousePressed
-        
         ListaEjercicios jmListaEjercicio = new ListaEjercicios();
-        this.setContentPane(jmListaEjercicio);
         jmListaEjercicio.setVisible(true);
-        
-    }//GEN-LAST:event_jmListaEjercicioMousePressed
+        this.setContentPane(jmListaEjercicio);
+    }//GEN-LAST:event_jmListaEjercicioActionPerformed
 
-    private void jmMembresiaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmMembresiaMousePressed
+    private void jmMembresiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmMembresiaActionPerformed
         // TODO add your handling code here:
         PanelMembresia jmMembresia = new PanelMembresia();
         this.setContentPane(jmMembresia);
         jmMembresia.setVisible(true);
-    }//GEN-LAST:event_jmMembresiaMousePressed
+    }//GEN-LAST:event_jmMembresiaActionPerformed
+
+    private void jmEjerciciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmEjerciciosActionPerformed
+        // TODO add your handling code here:
+        Ejercicios jmEjercicios = new Ejercicios();
+        this.setContentPane(jmEjercicios);
+        jmEjercicios.setVisible(true);
+    }//GEN-LAST:event_jmEjerciciosActionPerformed
+
+    private void jmMostrarEjerciciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmMostrarEjerciciosActionPerformed
+        // TODO add your handling code here:
+         PanelRutina jmMostrarEjercicios = new PanelRutina();
+        this.setContentPane(jmMostrarEjercicios);
+        jmMostrarEjercicios.setVisible(true);
+    }//GEN-LAST:event_jmMostrarEjerciciosActionPerformed
+
+    private void jmAgregarRutinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmAgregarRutinaActionPerformed
+        // TODO add your handling code here:
+         SeleccionarRutinas jmAgregarRutina = new SeleccionarRutinas();
+         this.setContentPane(jmAgregarRutina);
+         jmAgregarRutina.setVisible(true);
+    }//GEN-LAST:event_jmAgregarRutinaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -221,18 +231,18 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JMenuItem jmAgregarRutina;
     private javax.swing.JMenuItem jmCrearMantenimiento;
+    private javax.swing.JMenuItem jmCrearUsuario;
     private javax.swing.JMenuItem jmEjercicios;
     private javax.swing.JMenuItem jmListaEjercicio;
     private javax.swing.JCheckBoxMenuItem jmMembresia;
     private javax.swing.JMenuItem jmMostrarEjercicios;
+    private javax.swing.JMenuItem jmUsuariosC;
+    private javax.swing.JMenu mPrincipal;
     // End of variables declaration//GEN-END:variables
 
     private void setContentPaEjerciciosne(Ejercicios jmEjercicios) {

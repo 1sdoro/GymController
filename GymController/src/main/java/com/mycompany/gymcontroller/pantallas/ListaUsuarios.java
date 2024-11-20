@@ -18,13 +18,14 @@ import java.util.Optional;
 public class ListaUsuarios extends javax.swing.JPanel 
 {
     
-    UsuarioController u = new UsuarioController();
+    private static UsuarioController u = new UsuarioController();
     
     public ListaUsuarios() 
     {
         initComponents();
         
         cargarDatos("");
+        
         
     }
    public void cargarDatos(String usuarioNombre) {

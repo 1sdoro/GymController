@@ -7,6 +7,8 @@ package com.mycompany.gymcontroller.controllers;
 import com.mycompany.gymcontroller.modelo.Rutina;
 import com.mycompany.gymcontroller.modelo.Usuario;
 import com.mycompany.gymcontroller.modelo.Usuario;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -23,6 +25,7 @@ import java.util.List;
 public class UsuarioController 
 {
     private static final String FILE_NAME = "usuarios.dat";
+    private static final String ID_FILE_NAME = "ultimoId.dat";
     private static int ultimoId = 0; // Variable estática para llevar la cuenta del último ID
     private  List<Usuario> usuarios;
 
@@ -30,6 +33,7 @@ public class UsuarioController
     {
         usuarios = new ArrayList<>();
         cargarDatos();
+        cargarUltimoId(); // Cargar el último ID utilizado
     }
     
     private int generarNuevoId() {
@@ -39,9 +43,11 @@ public class UsuarioController
     // Crear
     public void agregarUsuario(Usuario usuario) 
     {
+        
         usuario.setId(generarNuevoId()); // Asignar un nuevo ID al usuario
         usuarios.add(usuario);
         guardarDatos();
+        guardarUltimoId();
     }
     
     // Leer
@@ -142,5 +148,33 @@ public class UsuarioController
         System.out.println("Usuario no encontrado.");
     }
 }
+     
+     private void guardarUltimoId()
+     {
+        try (DataOutputStream dos = new DataOutputStream(new FileOutputStream("ultimoId.dat"))) 
+        {
+            dos.writeInt(ultimoId);
+        } 
+        catch (IOException e) 
+        {
+            e.printStackTrace();
+        }
+    }
+     
+     private void cargarUltimoId()
+     {
+        try (DataInputStream dis = new DataInputStream(new FileInputStream("ultimoId.dat"))) 
+        {
+            ultimoId = dis.readInt();
+        } 
+        catch (FileNotFoundException e) 
+        {
+            System.out.println("Archivo de último ID no encontrado, se creará uno nuevo.");
+        }
+        catch (IOException e) 
+        {
+            e.printStackTrace();
+        }
+     }
     
 }
