@@ -10,6 +10,7 @@ import com.mycompany.gymcontroller.modelo.Usuario;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /*
  *
@@ -31,23 +32,26 @@ public class ListaUsuarios extends javax.swing.JPanel
    public void cargarDatos(String usuarioNombre) {
     List<Usuario> array = u.obtenerUsuarioList();
     if (!usuarioNombre.equals("")) {
-        Optional<Usuario> o = array.stream().filter(e -> e.getUsuario().equals(usuarioNombre)).findAny();
-        array = o.map(List::of).map(ArrayList::new).orElseGet(ArrayList::new);
-    }
+        array = array.stream()
+                .filter(e-> e.getNombreUsuario().equalsIgnoreCase(usuarioNombre))
+                .collect(Collectors.toList());
     Object[][] v = new Object[array.size()][3];
     int contador = 0;
-    for (Usuario u : array) {
+    for (int i = 0; i<array.size(); i++) {
+        Usuario u = array.get(i);
         v[contador][0] = u.getId();
         v[contador][1] = u.getNombreUsuario();
         v[contador][2] = u.getContrasennaUsuario();
         contador++;
     }
-    TblUsuarios.setModel(new javax.swing.table.DefaultTableModel(
+     TblUsuarios.setModel(new javax.swing.table.DefaultTableModel(
         v,
         new String[] {
             "Id", "Nombre", "Contraseña"
         }
     ));
+    }
+}
 }
 
 
@@ -143,7 +147,7 @@ public class ListaUsuarios extends javax.swing.JPanel
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseClicked
-       String usuario = txtUsuario.getText();
+       String usuario = txtUsuario.getText().trim();
         cargarDatos(usuario);
     }//GEN-LAST:event_btnBuscarMouseClicked
 
