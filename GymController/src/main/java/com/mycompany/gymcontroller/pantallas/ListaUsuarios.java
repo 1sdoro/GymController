@@ -51,7 +51,7 @@ public class ListaUsuarios extends javax.swing.JPanel
        TblUsuarios.setModel(new javax.swing.table.DefaultTableModel(
            v,
            new String [] {
-               "Id", "Nombre", "Categoria"
+               "Id", "Nombre", "Contraseña"
            }
        ));
     }
