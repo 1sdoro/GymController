@@ -4,14 +4,8 @@
  */
 package com.mycompany.gymcontroller.pantallas;
 
-import com.mycompany.gymcontroller.controllers.EjercicioController;
 import com.mycompany.gymcontroller.controllers.UsuarioController;
-import com.mycompany.gymcontroller.modelo.Ejercicio;
 import com.mycompany.gymcontroller.modelo.Rutina;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import javax.swing.JCheckBox;
 
 /**
  *
@@ -21,17 +15,10 @@ public class Principal extends javax.swing.JFrame {
     /**
      * Creates new form Principal
      */
-    
-    private List<JCheckBox> listaCheckBoxes; // Para almacenar los checkboxes creados
-    private EjercicioController ec;          // Controlador para manejar los ejercicios
-    
     public Principal() {
         initComponents();
         this.setLocationRelativeTo(null);
-
-    // Inicializar listaCheckBoxes y EjercicioController
-    listaCheckBoxes = new ArrayList<>(); // Crear una lista vacía
-    ec = new EjercicioController();     // Crear una instancia del controlador
+        
         
         
     }
@@ -48,9 +35,14 @@ public class Principal extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         mPrincipal = new javax.swing.JMenu();
+        jmCrearMantenimiento = new javax.swing.JMenuItem();
+        jmCrearUsuario = new javax.swing.JMenuItem();
         jmEjercicios = new javax.swing.JMenuItem();
         jmListaEjercicio = new javax.swing.JMenuItem();
+        jmMostrarEjercicios = new javax.swing.JMenuItem();
+        jmAgregarRutina = new javax.swing.JMenuItem();
         jmUsuariosC = new javax.swing.JMenuItem();
+        jmMembresia = new javax.swing.JCheckBoxMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -58,6 +50,22 @@ public class Principal extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         mPrincipal.setText("Mantenimiento");
+
+        jmCrearMantenimiento.setText("Crear mantenimiento");
+        jmCrearMantenimiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmCrearMantenimientoActionPerformed(evt);
+            }
+        });
+        mPrincipal.add(jmCrearMantenimiento);
+
+        jmCrearUsuario.setText("Crear usuario");
+        jmCrearUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmCrearUsuarioActionPerformed(evt);
+            }
+        });
+        mPrincipal.add(jmCrearUsuario);
 
         jmEjercicios.setText("Ejercicios");
         jmEjercicios.addActionListener(new java.awt.event.ActionListener() {
@@ -68,7 +76,28 @@ public class Principal extends javax.swing.JFrame {
         mPrincipal.add(jmEjercicios);
 
         jmListaEjercicio.setText("Lista Ejercicio");
+        jmListaEjercicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmListaEjercicioActionPerformed(evt);
+            }
+        });
         mPrincipal.add(jmListaEjercicio);
+
+        jmMostrarEjercicios.setText("Mostrar Ejercicios");
+        jmMostrarEjercicios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmMostrarEjerciciosActionPerformed(evt);
+            }
+        });
+        mPrincipal.add(jmMostrarEjercicios);
+
+        jmAgregarRutina.setText("Agregar Rutina");
+        jmAgregarRutina.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmAgregarRutinaActionPerformed(evt);
+            }
+        });
+        mPrincipal.add(jmAgregarRutina);
 
         jmUsuariosC.setText("Usuarios");
         jmUsuariosC.addActionListener(new java.awt.event.ActionListener() {
@@ -77,6 +106,15 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         mPrincipal.add(jmUsuariosC);
+
+        jmMembresia.setSelected(true);
+        jmMembresia.setText("Membresia");
+        jmMembresia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmMembresiaActionPerformed(evt);
+            }
+        });
+        mPrincipal.add(jmMembresia);
 
         jMenuBar1.add(mPrincipal);
         jMenuBar1.add(jMenu2);
@@ -91,57 +129,41 @@ public class Principal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jmCrearUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmCrearUsuarioActionPerformed
+        // TODO add your handling code here:
+//        RegistroUsuario crearUsuario = new RegistroUsuario();
+//        this.setContentPane(crearUsuario);
+//        crearUsuario.setVisible(true);
+        RegistroUsuario registroUsuario = new RegistroUsuario();
+        registroUsuario.setVisible(true);
+    }//GEN-LAST:event_jmCrearUsuarioActionPerformed
+
     private void jmUsuariosCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmUsuariosCActionPerformed
         // TODO add your handling code here:
-        ListaUsuarios  pUsuarios = new ListaUsuarios();
-        this.setContentPane(pUsuarios);
-        pUsuarios.setVisible(true);
+         ListaUsuarios  pUsuarios = new ListaUsuarios();
+         this.setContentPane(pUsuarios);    
+         pUsuarios.setVisible(true);
     }//GEN-LAST:event_jmUsuariosCActionPerformed
 
-    private void jmAgregarRutinaActionPerformed(java.awt.event.ActionEvent evt) {                                                
-         // Verificar si `listaCheckBoxes` y `ec` están inicializados
-    if (listaCheckBoxes == null || ec == null) {
-        System.err.println("Error: listaCheckBoxes o ec no están inicializados.");
-        return; // Salir del método si no están inicializados
-    }
-
-    // Obtener la lista de ejercicios seleccionados
-    List<Ejercicio> ejerciciosSeleccionados = new ArrayList<>();
-    for (JCheckBox checkBox : listaCheckBoxes) {
-        if (checkBox.isSelected()) {
-            Ejercicio ejercicio = ec.obtenerEjercicioPorNombre(checkBox.getText());
-            if (ejercicio != null) {
-                ejerciciosSeleccionados.add(ejercicio);
-            }
-        }
-    }
-
-    // Asegurarse de que `ec` es un EjercicioController
-    EjercicioController ejercicioController = ec;
-
-    
-    SeleccionarRutinas seleccionarRutinasPanel = new SeleccionarRutinas(ejercicioController);
-
-
-    // Establecer el panel como el contenido de la ventana
-    this.setContentPane(seleccionarRutinasPanel);
-    seleccionarRutinasPanel.setVisible(true);
-
-    }                                               
-
-    private void jmMostrarEjerciciosActionPerformed(java.awt.event.ActionEvent evt) {                                                    
+    private void jmListaEjercicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmListaEjercicioActionPerformed
         // TODO add your handling code here:
+        ListaEjercicios jmListaEjercicio = new ListaEjercicios();
+        jmListaEjercicio.setVisible(true);
+        this.setContentPane(jmListaEjercicio);
+    }//GEN-LAST:event_jmListaEjercicioActionPerformed
 
-        PanelRutina jmMostrarEjercicios = new PanelRutina();
-        this.setContentPane(jmMostrarEjercicios);
-        jmMostrarEjercicios.setVisible(true);
-    }                                                   
+    private void jmMembresiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmMembresiaActionPerformed
+        // TODO add your handling code here:
+        PanelMembresia jmMembresia = new PanelMembresia();
+        this.setContentPane(jmMembresia);
+        jmMembresia.setVisible(true);
+    }//GEN-LAST:event_jmMembresiaActionPerformed
 
     private void jmEjerciciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmEjerciciosActionPerformed
         // TODO add your handling code here:
@@ -149,6 +171,20 @@ public class Principal extends javax.swing.JFrame {
         this.setContentPane(jmEjercicios);
         jmEjercicios.setVisible(true);
     }//GEN-LAST:event_jmEjerciciosActionPerformed
+
+    private void jmMostrarEjerciciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmMostrarEjerciciosActionPerformed
+        // TODO add your handling code here:
+         PanelRutina jmMostrarEjercicios = new PanelRutina();
+        this.setContentPane(jmMostrarEjercicios);
+        jmMostrarEjercicios.setVisible(true);
+    }//GEN-LAST:event_jmMostrarEjerciciosActionPerformed
+
+    private void jmAgregarRutinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmAgregarRutinaActionPerformed
+        // TODO add your handling code here:
+         SeleccionarRutinas jmAgregarRutina = new SeleccionarRutinas();
+         this.setContentPane(jmAgregarRutina);
+         jmAgregarRutina.setVisible(true);
+    }//GEN-LAST:event_jmAgregarRutinaActionPerformed
 
     private void jmCrearMantenimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmCrearMantenimientoActionPerformed
         // TODO add your handling code here:
@@ -196,40 +232,18 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JMenuItem jmAgregarRutina;
+    private javax.swing.JMenuItem jmCrearMantenimiento;
+    private javax.swing.JMenuItem jmCrearUsuario;
     private javax.swing.JMenuItem jmEjercicios;
     private javax.swing.JMenuItem jmListaEjercicio;
+    private javax.swing.JCheckBoxMenuItem jmMembresia;
+    private javax.swing.JMenuItem jmMostrarEjercicios;
     private javax.swing.JMenuItem jmUsuariosC;
     private javax.swing.JMenu mPrincipal;
     // End of variables declaration//GEN-END:variables
 
     private void setContentPaEjerciciosne(Ejercicios jmEjercicios) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public List<Ejercicio> obtenerEjerciciosSeleccionados() {
-    // Verificar que listaCheckBoxes no sea null
-    if (listaCheckBoxes == null) {
-        System.err.println("Error: listaCheckBoxes no está inicializada.");
-        return Collections.emptyList(); // Retorna una lista vacía si no está inicializada
-    }
-
-    // Crear una lista para almacenar los ejercicios seleccionados
-    List<Ejercicio> seleccionados = new ArrayList<>();
-
-    // Iterar sobre los checkboxes para encontrar los seleccionados
-    for (JCheckBox checkBox : listaCheckBoxes) {
-        if (checkBox.isSelected()) {
-            Ejercicio e = ec.obtenerEjercicioPorNombre(checkBox.getText());
-            if (e != null) {
-                seleccionados.add(e);
-            }
-        }
-    }
-
-    return seleccionados;
-}
-
-    private Ejercicio obtenerEjercicioDeCheckBox(JCheckBox checkBox) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

@@ -35,10 +35,6 @@ public class Rutina implements Serializable{
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    public Rutina(int id, String nombre, String categoria) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
     // Getters
     public int getId() {
         return id;
@@ -110,13 +106,5 @@ public class Rutina implements Serializable{
         idEjercicios.add(2); // ID de "Sentadillas"
 
         return new Rutina(1, 101, dias, idEjercicios, "Rutina de Fuerza", 10);
-    }
-
-    public Object getCategoria() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public Object getUsuario() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
