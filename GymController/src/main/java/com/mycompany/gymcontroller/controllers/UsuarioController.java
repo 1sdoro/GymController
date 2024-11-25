@@ -4,6 +4,7 @@
  */
 package com.mycompany.gymcontroller.controllers;
 
+import com.mycompany.gymcontroller.modelo.Ejercicio;
 import com.mycompany.gymcontroller.modelo.Rutina;
 import com.mycompany.gymcontroller.modelo.Usuario;
 import com.mycompany.gymcontroller.modelo.Usuario;
@@ -176,5 +177,11 @@ public class UsuarioController
             e.printStackTrace();
         }
      }
+
+    public void asignarEjercicioAUsuario(String usuario, Ejercicio ejercicio) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    
+    
     
 }
