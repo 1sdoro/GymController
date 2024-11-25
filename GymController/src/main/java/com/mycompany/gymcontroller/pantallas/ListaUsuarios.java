@@ -29,30 +29,26 @@ public class ListaUsuarios extends javax.swing.JPanel
         
         
     }
-   public void cargarDatos(String usuarioNombre) {
-    List<Usuario> array = u.obtenerUsuarioList();
-    if (!usuarioNombre.equals("")) {
-        array = array.stream()
-                .filter(e-> e.getNombreUsuario().equalsIgnoreCase(usuarioNombre))
-                .collect(Collectors.toList());
-    Object[][] v = new Object[array.size()][3];
-    int contador = 0;
-    for (int i = 0; i<array.size(); i++) {
-        Usuario u = array.get(i);
-        v[contador][0] = u.getId();
-        v[contador][1] = u.getNombreUsuario();
-        v[contador][2] = u.getContrasennaUsuario();
-        contador++;
-    }
-     TblUsuarios.setModel(new javax.swing.table.DefaultTableModel(
-        v,
-        new String[] {
-            "Id", "Nombre", "Contraseña"
+    
+    public void cargarDatos (String usuarioNombre)
+    {
+        List<Usuario> array = u.obtenerUsuarioList();
+        if (!usuarioNombre.equals(""))
+        {
+           array = array.stream()
+                   .filter(e-> e.getNombreUsuario().equalsIgnoreCase(usuarioNombre))
+                   .collect(Collectors.toList());
         }
-    ));
+        Object[][] v = new Object [array.size()][3];
+        int contador = 0;
+        for (int i = 0; i < array.size(); i++)
+        {
+            Usuario u = array.get(i);
+            v[contador][0]= u.getId();
+            v[contador][1]= u.getNombreUsuario();
+            v[contador][2]= u.getContrasennaUsuario();
+        }
     }
-}
-}
 
 
     /**
@@ -95,13 +91,9 @@ public class ListaUsuarios extends javax.swing.JPanel
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Usuario");
 
-        txtUsuario.setBackground(new java.awt.Color(255, 255, 255));
         txtUsuario.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        txtUsuario.setForeground(new java.awt.Color(0, 0, 0));
 
-        btnBuscar.setBackground(new java.awt.Color(255, 255, 255));
         btnBuscar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        btnBuscar.setForeground(new java.awt.Color(0, 0, 0));
         btnBuscar.setText("Buscar");
         btnBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
