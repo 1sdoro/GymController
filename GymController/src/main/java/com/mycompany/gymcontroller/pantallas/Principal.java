@@ -117,8 +117,6 @@ public class Principal extends javax.swing.JFrame {
         mPrincipal.add(jmMembresia);
 
         jMenuBar1.add(mPrincipal);
-
-        jMenu2.setText("Edit");
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -152,13 +150,6 @@ public class Principal extends javax.swing.JFrame {
          this.setContentPane(pUsuarios);    
          pUsuarios.setVisible(true);
     }//GEN-LAST:event_jmUsuariosCActionPerformed
-
-    private void jmCrearMantenimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmCrearMantenimientoActionPerformed
-        // TODO add your handling code here:
-        ListaEjercicios crearMantenimiento = new ListaEjercicios();
-        this.setContentPane(crearMantenimiento);
-        crearMantenimiento.setVisible(true);
-    }//GEN-LAST:event_jmCrearMantenimientoActionPerformed
 
     private void jmListaEjercicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmListaEjercicioActionPerformed
         // TODO add your handling code here:
@@ -194,6 +185,13 @@ public class Principal extends javax.swing.JFrame {
          this.setContentPane(jmAgregarRutina);
          jmAgregarRutina.setVisible(true);
     }//GEN-LAST:event_jmAgregarRutinaActionPerformed
+
+    private void jmCrearMantenimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmCrearMantenimientoActionPerformed
+        // TODO add your handling code here:
+        ListaEjercicios crearMantenimiento = new ListaEjercicios();
+        this.setContentPane(crearMantenimiento);
+        crearMantenimiento.setVisible(true);
+    }//GEN-LAST:event_jmCrearMantenimientoActionPerformed
 
     /**
      * @param args the command line arguments

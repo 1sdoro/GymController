@@ -41,6 +41,7 @@ public class LogInUsuario extends javax.swing.JFrame {
         btnRegistar = new javax.swing.JButton();
         cbMostrarContra = new javax.swing.JCheckBox();
         lbMensaje = new javax.swing.JLabel();
+        lbError = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -131,6 +132,11 @@ public class LogInUsuario extends javax.swing.JFrame {
         lbMensaje.setForeground(new java.awt.Color(153, 255, 102));
         jPanel1.add(lbMensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 120, 30));
 
+        lbError.setBackground(new java.awt.Color(255, 255, 255));
+        lbError.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        lbError.setForeground(new java.awt.Color(255, 0, 51));
+        jPanel1.add(lbError, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 200, 30));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -171,9 +177,8 @@ public class LogInUsuario extends javax.swing.JFrame {
     private void btnIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarMouseClicked
         String auxUsuario = txtUsuario.getText();
         String auxContrasenna = psswContrasenna.getText();
-        if (txtUsuario != null && psswContrasenna != null) 
+        if (!auxUsuario.isEmpty() && !auxContrasenna.isEmpty()) 
         {
-//          Usuario consulta = UsuarioController.autentificarUsuario(auxUsuario, auxContrasenna);
             UsuarioController u = new UsuarioController();
            if (u.autentificarUsuario(auxUsuario, auxContrasenna)!=null)
            {
@@ -185,7 +190,7 @@ public class LogInUsuario extends javax.swing.JFrame {
         }
         else
         {
-           lbMensaje.setText("No has Ingresado los datos");
+           lbError.setText("Datos incompletos o erroneos");
         }
     }//GEN-LAST:event_btnIngresarMouseClicked
 
@@ -244,6 +249,7 @@ public class LogInUsuario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel jlbContrasenna;
     private javax.swing.JLabel jlbUsuario;
+    private javax.swing.JLabel lbError;
     private javax.swing.JLabel lbMensaje;
     private javax.swing.JPasswordField psswContrasenna;
     private javax.swing.JTextField txtUsuario;
