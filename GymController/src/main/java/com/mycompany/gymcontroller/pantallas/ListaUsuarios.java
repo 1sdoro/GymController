@@ -39,15 +39,21 @@ public class ListaUsuarios extends javax.swing.JPanel
                    .filter(e-> e.getNombreUsuario().equalsIgnoreCase(usuarioNombre))
                    .collect(Collectors.toList());
         }
-        Object[][] v = new Object [array.size()][3];
+        Object [][] v = new Object[array.size()][3];
         int contador = 0;
-        for (int i = 0; i < array.size(); i++)
+        for (Usuario u : array) 
         {
-            Usuario u = array.get(i);
-            v[contador][0]= u.getId();
-            v[contador][1]= u.getNombreUsuario();
-            v[contador][2]= u.getContrasennaUsuario();
-        }
+           v[contador][0] = u.getId();
+           v[contador][1] = u.getNombreUsuario();
+           v[contador][2] = u.getContrasennaUsuario();
+           contador++;
+       }
+       TblUsuarios.setModel(new javax.swing.table.DefaultTableModel(
+           v,
+           new String [] {
+               "Id", "Nombre", "Categoria"
+           }
+       ));
     }
 
 

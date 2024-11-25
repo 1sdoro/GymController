@@ -15,7 +15,6 @@ import java.util.List;
  */
 public class Usuario implements Serializable{
     private int id;
-    private boolean isAdmin;
     private String adminNombre;
     private String adminContra;
     private String nombreUsuario;
@@ -62,22 +61,11 @@ public class Usuario implements Serializable{
     
     public Usuario(String nombreUsuario, String usuario, String contrasennaUsuario)
     {
-        this.isAdmin=isAdmin;
         this.nombreUsuario = nombreUsuario;
         this.usuario = usuario;
         this.contrasennaUsuario = contrasennaUsuario;
     }
 
-    public boolean isIsAdmin() {
-        return isAdmin;
-    }
-
-    public void setIsAdmin(boolean isAdmin) {
-        this.isAdmin = isAdmin;
-    }
-
-    
-    
     public Usuario(boolean isAdmin, String nombre, int Apellido) {
         throw new UnsupportedOperationException("Not supported yet."); 
     }
